@@ -120,7 +120,7 @@ const Register = () => {
    //API
    const registerSubmit = async () => {
       try {
-         const response = await http.post("/cliente", {
+         const response = await http.post("/user", {
             firstName,
             lastName,
             serial,

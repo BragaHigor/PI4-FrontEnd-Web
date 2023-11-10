@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import Login from "../src/pages/Login/Login";
 import Register from "../src/pages/Register/Register";
+import Dashboard from "../src/pages/Dashboard/Dashboard";
 
 import validateToken from "./db/validateToken";
 
@@ -45,16 +46,20 @@ const RoutesApp = () => {
          <Routes>
             {/* TELA DASH */}
             <Route
-               path="/dashboard"
+               path="/TESTESTESTESTESTESTE"
                element={
-                  <PrivateRoute redirectTo={"/"} bdUrl={"/dashboard"}>
-                     {/* <Admin /> */}
+                  <PrivateRoute
+                     redirectTo={"/"}
+                     bdUrl={"/TESTESTESTESTESTESTE"}
+                  >
+                     {/* <Dashboard /> */}
                   </PrivateRoute>
                }
             />
 
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard />} />
          </Routes>
       </BrowserRouter>
    );

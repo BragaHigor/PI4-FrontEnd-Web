@@ -30,67 +30,70 @@ const Login = () => {
    //API
    const signinSubmit = async () => {
       try {
-         const response = await http.post("/cliente/login", {
+         const response = await http.post("/user/auth", {
             email,
-            senha: password,
+            password,
          });
+         const token = response.data.token;
+
+         console.log('Token', token);
+         console.log(response);
 
          localStorage.clear("token_API");
 
          localStorage.setItem("token_API", JSON.stringify(response.data.token));
-         localStorage.setItem("URL", JSON.stringify(response.config.url));
+         // localStorage.setItem("URL", JSON.stringify(response.config.url));
 
-         navigate("/cliente");
+         navigate("/dashboard");
 
-         console.log(response);
       } catch (error) {
-         if (error.response) {
-            if (error.response.data.error === "Senha incorreta.") {
-               toast.error(
-                  "Senha incorreta. Por favor, verifique a Senha digitada.",
-                  {
-                     className: "error-toast",
-                     position: "bottom-right",
-                     autoClose: 5000,
-                     hideProgressBar: false,
-                     closeOnClick: true,
-                     pauseOnHover: true,
-                     draggable: true,
-                     progress: undefined,
-                     theme: "colored",
-                  }
-               );
-            } else if (error.response.data.error === "Email não encontrado.") {
-               toast.error(
-                  "Email não encontrado. Por favor, verifique o Email digitado.",
-                  {
-                     className: "error-toast",
-                     position: "bottom-right",
-                     autoClose: 5000,
-                     hideProgressBar: false,
-                     closeOnClick: true,
-                     pauseOnHover: true,
-                     draggable: true,
-                     progress: undefined,
-                     theme: "colored",
-                  }
-               );
-            } else {
-               toast.info("Erro de conexão. Entre contato com o suporte.", {
-                  className: "error-toast",
-                  position: "bottom-left",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-               });
-            }
-         }
+         // if (error.response) {
+         //    if (error.response.data.error === "Senha incorreta.") {
+         //       toast.error(
+         //          "Senha incorreta. Por favor, verifique a Senha digitada.",
+         //          {
+         //             className: "error-toast",
+         //             position: "bottom-right",
+         //             autoClose: 5000,
+         //             hideProgressBar: false,
+         //             closeOnClick: true,
+         //             pauseOnHover: true,
+         //             draggable: true,
+         //             progress: undefined,
+         //             theme: "colored",
+         //          }
+         //       );
+         //    } else if (error.response.data.error === "Email não encontrado.") {
+         //       toast.error(
+         //          "Email não encontrado. Por favor, verifique o Email digitado.",
+         //          {
+         //             className: "error-toast",
+         //             position: "bottom-right",
+         //             autoClose: 5000,
+         //             hideProgressBar: false,
+         //             closeOnClick: true,
+         //             pauseOnHover: true,
+         //             draggable: true,
+         //             progress: undefined,
+         //             theme: "colored",
+         //          }
+         //       );
+         //    } else {
+         //       toast.info("Erro de conexão. Entre contato com o suporte.", {
+         //          className: "error-toast",
+         //          position: "bottom-left",
+         //          autoClose: 5000,
+         //          hideProgressBar: false,
+         //          closeOnClick: true,
+         //          pauseOnHover: true,
+         //          draggable: true,
+         //          progress: undefined,
+         //          theme: "colored",
+         //       });
+         //    }
+         // }
 
-         console.log(error);
+         console.log('ERROR', error);
       }
    };
 

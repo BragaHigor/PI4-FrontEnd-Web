@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-   baseURL: "http://localhost:3333/api",
+   baseURL: "http://pi-4-server.vercel.app/api/v1",
 });
 
 export default http;
