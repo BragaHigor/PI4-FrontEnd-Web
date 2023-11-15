@@ -42,7 +42,9 @@ const makeStyle = (status) => {
 const BasicTable = () => {
    return (
       <div className={style.Table}>
-         <h3>Recent Orders</h3>
+         <div className={style.Title}>
+            <h3>Recent Orders</h3>
+         </div>
          <TableContainer
             component={Paper}
             style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
@@ -88,6 +90,6 @@ const BasicTable = () => {
          </TableContainer>
       </div>
    );
-}
+};
 
-export default BasicTable
+export default BasicTable;

@@ -15,7 +15,10 @@ const Cards = () => {
               barValue={card.barValue}
               value={card.value}
               png={card.png}
-              series={card.series}
+              seriesDia={card.seriesDia}
+              seriesHora={card.seriesHora}
+              unidade={card.unidade}
+              medida={card.medida}
             />
           </div>
         );

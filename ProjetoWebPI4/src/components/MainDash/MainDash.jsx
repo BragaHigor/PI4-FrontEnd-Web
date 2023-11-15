@@ -5,9 +5,13 @@ import style from "./styleMainDash.module.css";
 const MainDash = () => {
    return (
       <div className={style.MainDash}>
-         <h1>Dashboard</h1>
+         <div className={style.Title}>
+            <h1>Dashboard</h1>
+         </div>
          <Cards />
-         <BasicTable />
+         <div className={style.Table}>
+            <BasicTable />
+         </div>
       </div>
    );
 };

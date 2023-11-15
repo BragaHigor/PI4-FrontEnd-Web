@@ -11,7 +11,6 @@
   }
   
   .logo {
-    display: flex;
     height: 5rem;
     font-weight: bold;
     font-size: 22px;
@@ -20,6 +19,7 @@
     justify-content: center;
     height: 4%;
   }
+  
   .logo > span > span {
     color: var(--pink);
   }
@@ -32,10 +32,11 @@
   
   /* menu */
   .menu {
-    margin-top: 4rem;
+    margin-top: 22px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
   }
   .menuItem {
     display: flex;

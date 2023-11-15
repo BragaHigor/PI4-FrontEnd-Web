@@ -3,12 +3,8 @@ import {
     UilEstate,
     UilClipboardAlt,
     UilUsersAlt,
-    UilPackage,
-    UilChart,
   } from "@iconscout/react-unicons";
   
-  // Analytics Cards imports
-  import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
   
   // Recent Card Imports
   import Logo from "../assets/icon.png";
@@ -21,72 +17,92 @@ import {
     },
     {
       icon: UilClipboardAlt,
-      heading: "Orders",
+      heading: "Grafana",
     },
     {
       icon: UilUsersAlt,
-      heading: "Customers",
+      heading: "Perfil",
     },
-    {
-      icon: UilPackage,
-      heading: 'Products'
-    },
-    {
-      icon: UilChart,
-      heading: 'Analytics'
-    },
+    // {
+    //   icon: UilPackage,
+    //   heading: 'Products'
+    // },
+    // {
+    //   icon: UilChart,
+    //   heading: 'Analytics'
+    // },
   ];
   
   // Analytics Cards Data
   export const cardsData = [
     {
-      title: "Sales",
+      title: "Umidade do AR",
       color: {
-        backGround: "linear-gradient(180deg, #bb67ff 0%, #c484f3 100%)",
-        boxShadow: "0px 10px 20px 0px #e0c6f5",
+        backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
+        boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
-      barValue: 70,
-      value: "25,970",
-      png: UilUsdSquare,
-      series: [
+      barValue: 40,
+      value: "0000",
+      unidade: 34,
+      medida: '%',
+      seriesDia: [
         {
-          name: "Sales",
+          name: "Umidade do AR",
           data: [31, 40, 28, 51, 42, 109, 100],
         },
       ],
+      seriesHora: [
+         {
+           name: "Umidade do AR",
+           data: [45, 77, 22, 6, 48, 15, 30],
+         },
+       ],
     },
     {
-      title: "Revenue",
+      title: "Umidade do Solo",
       color: {
-        backGround: "linear-gradient(180deg, #FF919D 0%, #FC929D 100%)",
-        boxShadow: "0px 10px 20px 0px #FDC0C7",
+        backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
+        boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
       barValue: 80,
       value: "14,270",
-      png: UilMoneyWithdrawal,
-      series: [
+      unidade: 25,
+      medida: '%',
+      seriesDia: [
         {
-          name: "Revenue",
-          data: [10, 100, 50, 70, 80, 30, 40],
+          name: "Umidade do Solo",
+          data: [22, 57, 2, 78, 48, 33, 16]
         },
       ],
+      seriesHora: [
+         {
+           name: "Umidade do AR",
+           data: [45, 77, 22, 6, 48, 15, 30],
+         },
+       ],
     },
     {
-      title: "Expenses",
+      title: "Temperatura",
       color: {
-        backGround:
-          "linear-gradient(rgb(248, 212, 154) -146.42%, rgb(255 202 113) -46.42%)",
-        boxShadow: "0px 10px 20px 0px #F9D59B",
+        backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
+        boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
       barValue: 60,
       value: "4,270",
-      png: UilClipboardAlt,
-      series: [
+      unidade: 15,
+      medida: '°C',
+      seriesDia: [
         {
-          name: "Expenses",
+          name: "Temperatura",
           data: [10, 25, 15, 30, 12, 15, 20],
         },
       ],
+      seriesHora: [
+         {
+           name: "Umidade do AR",
+           data: [45, 77, 22, 6, 48, 15, 30],
+         },
+       ],
     },
   ];
   

@@ -1,105 +1,159 @@
 .CompactCard {
-    display: flex;
+   display: flex;
+   flex: 1;
+   /* height: 7rem !important; */
+   border-radius: 0.7rem;
+   color: #292934;
+   padding: 1rem;
+   position: relative;
+   cursor: pointer;
+}
+.CompactCard:hover {
+   box-shadow: none !important;
+}
+
+/* radial bar */
+.radialBar {
+   flex: 1 1;
+   display: flex;
+   flex-direction: column;
+   /* justify-content: flex-end; */
+   gap: 1rem;
+}
+
+.unidade {
+   font-size: 100px;
+}
+
+.medida {
+   font-size: 25px;
+}
+
+.info {
+   display: flex;
+   align-items: baseline;
+   
+}
+
+.CircularProgressbar {
+   width: 4rem !important;
+   overflow: visible;
+}
+.CircularProgressbar-path {
+   stroke: white !important;
+   stroke-width: 12px !important;
+   filter: drop-shadow(2px 4px 6px white);
+}
+.CircularProgressbar-trail {
+   display: none;
+}
+.CircularProgressbar-text {
+   fill: white !important;
+}
+
+.radialBar > span {
+   font-size: 17px;
+   font-weight: bold;
+}
+
+/* sideDetail*/
+.detail {
     flex: 1;
-    height: 7rem !important;
-    border-radius: 0.7rem;
-    color: white;
-    padding: 1rem;
-    position: relative;
-    cursor: pointer;
-  }
-  .CompactCard:hover {
-    box-shadow: none !important;
-  }
-  
-  /* radial bar */
-  .radialBar {
-    flex: 1 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 1rem;
   }
-  .CircularProgressbar {
-    width: 4rem !important;
-    overflow: visible;
-  }
-  .CircularProgressbar-path {
-    stroke: white !important;
-    stroke-width: 12px !important;
-    filter: drop-shadow(2px 4px 6px white);
-  }
-  .CircularProgressbar-trail {
-    display: none;
-  }
-  .CircularProgressbar-text {
-    fill: white !important;
-  }
-  
-  .radialBar > span {
-    font-size: 17px;
-    font-weight: bold;
-  }
-  
-  /* sideDetail*/
-  .detail {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  
-  .detail > span:nth-child(2) {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  .detail > span:nth-child(3) {
-    font-size: 12px;
-  }
-  
-  /* ExpandedCard */
-  .ExpandedCard {
-    position: absolute;
-    width: 60%;
-    height: 70vh;
-    z-index: 9;
-    left: 13rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 1rem;
-  }
-  .ExpandedCard > span:nth-of-type(1) {
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 0px 0px 15px white;
-  }
-  .ExpandedCard > span:nth-of-type(2) {
-    color: rgb(236, 236, 236);
-    font-size: 15px;
-  }
-  
-  .chartContainer {
-    width: 70%;
-  }
-  
-  @media screen and (max-width: 1200px) {
-    .ExpandedCard {
+
+.detail > span:nth-child(2) {
+   font-size: 22px;
+   font-weight: bold;
+}
+.detail > span:nth-child(3) {
+   font-size: 12px;
+}
+
+/* ExpandedCard */
+.ExpandedCard {
+   position: absolute;
+   width: 62%;
+   height: 70vh;
+   z-index: 9;
+   left: 13rem;
+   border-radius: 1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   padding: 0.5rem;
+   align-items: flex-start;
+}
+.ExpandedCard > span:nth-of-type(1) {
+   align-items: flex-start;
+   font-size: 26px;
+   font-weight: bold;
+   text-shadow: 0px 0px 15px white;
+   margin-left: 50px;
+}
+.ExpandedCard > span:nth-of-type(2) {
+   color: #292934;
+   font-size: 15px;
+}
+
+.chartContainer {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+}
+
+.chartGrafico {
+   width: 70%;
+   height: 100%;
+}
+
+.Dados {
+   width: 50%;
+   height: 85%;
+}
+
+.Opcao{
+   width: 55%;
+   display: flex;
+   justify-content: space-between;
+   margin-left: 50px;
+   margin-top: 5px;
+}
+
+.DiaHora{
+   width: 100%;
+   display: flex;
+   justify-content: flex-end;
+   gap: 20px;
+   font-size: 17px;
+   color: #292934;
+   font-weight: 600;
+}
+
+.Dia:hover{
+   color: #006A42
+}
+
+.Hora:hover{
+   color: #006A42
+}
+
+
+@media screen and (max-width: 1200px) {
+   .ExpandedCard {
       top: 2rem;
       height: 45vh;
       left: 6rem;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .ExpandedCard {
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .ExpandedCard {
       top: 8rem;
       height: 50%;
       left: 25px;
       width: 80%;
-    }
-  }
+   }
+}

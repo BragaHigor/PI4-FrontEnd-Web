@@ -6,7 +6,7 @@ const RightSide = () => {
   return (
     <div className={style.RightSide}>
       <div>
-        <h3>Updates</h3>
+        <h3 className={style.Title}>Updates</h3>
         <Updates />
       </div>
       <div>

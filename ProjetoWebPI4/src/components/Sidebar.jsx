@@ -1,7 +1,5 @@
 import { useState } from "react";
 import style from "./styleSidebar.module.css";
-import Logo from "../assets/icon.png";
-import { UilSignOutAlt } from "@iconscout/react-unicons";
 import { SidebarData } from "../Utils/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
@@ -34,12 +32,11 @@ const Sidebar = () => {
             variants={sidebarVariants}
             animate={window.innerWidth <= 768 ? `${expanded}` : ""}
          >
-            {/* logo */}
+            
             <div className={style.logo}>
-               <img src={Logo} alt="logo" />
-               <span>
-                  Sh<span>o</span>ps
-               </span>
+               <h1>
+                  SoloSmart
+               </h1>
             </div>
 
             <div className={style.menu}>
@@ -57,10 +54,6 @@ const Sidebar = () => {
                      </div>
                   );
                })}
-               {/* signoutIcon */}
-               <div className={style.menuItem}>
-                  <UilSignOutAlt />
-               </div>
             </div>
          </motion.div>
       </>

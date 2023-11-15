@@ -1,0 +1,30 @@
+.Dados {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .DadosEstatistica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px; 
+    text-align: center; 
+    border: 1px solid #ccc; 
+    width: 120px; 
+    margin-right: 10px; 
+  }
+  
+  .DadosEstatistica h1 {
+    font-size: 17px;
+    color: #A7A7A7;
+    margin-bottom: 5px;
+  }
+  
+  .DadosEstatistica span {
+    font-size: 21px;
+    color: #292934;
+    font-weight: 600;
+  }
