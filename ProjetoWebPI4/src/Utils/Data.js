@@ -23,15 +23,38 @@ import {
       icon: UilUsersAlt,
       heading: "Perfil",
     },
-    // {
-    //   icon: UilPackage,
-    //   heading: 'Products'
-    // },
-    // {
-    //   icon: UilChart,
-    //   heading: 'Analytics'
-    // },
   ];
+
+  export const SidebarDispersao = [
+    {
+      heading: "Solo x Ar",
+      graphType: "DispersaoArSolo",
+    },
+    {
+      heading: "Ar x Temperatura",
+      graphType: "DispersaoArTemperatura",
+    },
+    {
+      heading: "Temperatura x Solo",
+      graphType: "DispersaoTemperaturaSolo",
+    },
+  ];
+
+  export const SidebarRegressao = [
+    {
+      heading: "Solo x Ar",
+      graphType: "RegressaoArSolo",
+    },
+    {
+      heading: "Ar x Temperatura",
+      graphType: "RegressaoArTemperatura",
+    },
+    {
+      heading: "Temperatura x Solo",
+      graphType: "RegressaoTemperaturaSolo",
+    },
+  ];
+  
   
   // Analytics Cards Data
   export const cardsData = [
@@ -126,4 +149,23 @@ import {
       noti: "Segundo dados do Tempo Agora, a cidade tem previsão de temperaturas entre 22°C e 36°C e 9% de chance de chuvas ao longo desta quarta.",
       time: "2h",
     },
+    {
+      img: Logo,
+      name: "Clima Tempo:",
+      noti: "Para o mês de novembro, a chuva média é de 197 mm na cidade Franca - SP.",
+      time: "25s",
+    },
+    {
+      img: Logo,
+      name: "G1:",
+      noti: "Sol e aumento de nuvens de manhã. Pancadas de chuva à tarde. À noite o tempo fica aberto.",
+      time: "30m",
+    },
+    {
+      img: Logo,
+      name: "Uol:",
+      noti: "Segundo dados do Tempo Agora, a cidade tem previsão de temperaturas entre 22°C e 36°C e 9% de chance de chuvas ao longo desta quarta.",
+      time: "2h",
+    },
+    
   ];

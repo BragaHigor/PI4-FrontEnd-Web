@@ -2,13 +2,13 @@ import Chart from "react-apexcharts";
 import regression from "regression";
 import style from "../styleCharts.module.css";
 
-const RegressaoArSolo = () => {
+const RegressaoTemperaturaSolo = () => {
    // Dados de exemplo (substitua pelos seus dados reais)
-   const umidadeAr = [20, 30, 35, 40, 45, 50, 60, 65];
+   const temperatura = [20, 30, 35, 40, 45, 50, 60, 65];
    const umidadeSolo = [30, 40, 45, 50, 35, 40, 60, 55];
 
    // Calcular a linha de regressão
-   const data = umidadeAr.map((value, index) => [value, umidadeSolo[index]]);
+   const data = temperatura.map((value, index) => [value, umidadeSolo[index]]);
    const result = regression.linear(data, { order: 2 });
    const regressionPoints = result.points.map((point) => point[1]);
 
@@ -25,12 +25,12 @@ const RegressaoArSolo = () => {
       },
       xaxis: {
          title: {
-            text: "Umidade do Solo",
+            text: "Temperatura",
          },
       },
       yaxis: {
          title: {
-            text: "Umidade do Ar",
+            text: "Umidade do Solo",
          },
       },
       markers: {
@@ -47,7 +47,7 @@ const RegressaoArSolo = () => {
          color: '#00c076',
       },
       {
-         name: "Umidade do Ar",
+         name: "Temperatura",
          data: regressionPoints,
          color: '#0048ce',
       },
@@ -57,7 +57,7 @@ const RegressaoArSolo = () => {
       <div>
          <div className={style.title}>
             <h1>Gráfico de Regressão</h1>
-            <h2>Umidade do Solo x Umidade do Ar</h2>
+            <h2>Temperatura x Umidade do Solo</h2>
          </div>
          <Chart 
             options={options} 
@@ -69,4 +69,4 @@ const RegressaoArSolo = () => {
    );
 };
 
-export default RegressaoArSolo;
+export default RegressaoTemperaturaSolo;

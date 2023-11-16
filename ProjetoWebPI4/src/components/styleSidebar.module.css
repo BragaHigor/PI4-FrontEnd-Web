@@ -19,6 +19,28 @@
     justify-content: center;
     height: 4%;
   }
+
+  .logo2 {
+    height: 5rem;
+    font-weight: bold;
+    font-size: 22px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 4%;
+    margin-top: 100px;
+  }
+
+  .logo3 {
+    height: 5rem;
+    font-weight: bold;
+    font-size: 22px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 4%;
+    margin-top: 30px;
+  }
   
   .logo > span > span {
     color: var(--pink);
@@ -36,8 +58,30 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
+    cursor: pointer;
   }
+
+  .menu2 {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    color: #292934;
+    transition: transform 0.3s ease;
+  }
+
+  .menuTitle {
+    cursor: pointer;
+    color: #292934;
+    transition: transform 0.3s ease;
+  }
+  
+  .menuTitle:hover {
+    color: #006A42;
+    transform: scale(5); /* Ajuste o valor conforme necessário para controlar o crescimento */
+  }
+
   .menuItem {
     display: flex;
     align-items: center;

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import style from "./styleSidebar.module.css";
-import { SidebarData } from "../Utils/Data";
+import { SidebarData, SidebarDispersao, SidebarRegressao } from "../Utils/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
+import { useGraphContext } from "../contexts/auth";
 
 const Sidebar = () => {
    const [selected, setSelected] = useState(0);
+   const { setSelectedGraph } = useGraphContext();
 
    const [expanded, setExpaned] = useState(true);
 
@@ -32,11 +34,8 @@ const Sidebar = () => {
             variants={sidebarVariants}
             animate={window.innerWidth <= 768 ? `${expanded}` : ""}
          >
-            
             <div className={style.logo}>
-               <h1>
-                  SoloSmart
-               </h1>
+               <h1>SoloSmart</h1>
             </div>
 
             <div className={style.menu}>
@@ -54,6 +53,40 @@ const Sidebar = () => {
                      </div>
                   );
                })}
+            </div>
+
+            <div className={style.logo2}>
+               <h1>Dispersão</h1>
+            </div>
+            <div className={style.menu2}>
+               {SidebarDispersao.map((item, index) => (
+                  <div
+                     className={
+                        selected === index ? "menuItem active" : "menuItem"
+                     }
+                     key={index}
+                     onClick={() => setSelectedGraph(item.graphType)}
+                  >
+                     <span className={style.menuTitle}>{item.heading}</span>
+                  </div>
+               ))}
+            </div>
+
+            <div className={style.logo3}>
+               <h1>Regressão</h1>
+            </div>
+            <div className={style.menu2}>
+               {SidebarRegressao.map((item, index) => (
+                  <div
+                     className={
+                        selected === index ? "menuItem active" : "menuItem"
+                     }
+                     key={index}
+                     onClick={() => setSelectedGraph(item.graphType)}
+                  >
+                     <span className={style.menuTitle}>{item.heading}</span>
+                  </div>
+               ))}
             </div>
          </motion.div>
       </>

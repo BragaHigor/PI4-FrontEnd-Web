@@ -1,11 +1,11 @@
 import Chart from "react-apexcharts";
 import style from "../styleCharts.module.css";
 
-const DispersaoArSolo = () => {
+const DispersaoTemperaturaSolo = () => {
    // Dados de exemplo
    const series = [
       {
-         name: "Umidade do Solo x Umidade do Ar",
+         name: "Temperatura x Umidade do Solo",
          data: [
             [25, 45],
             [70, 15],
@@ -44,12 +44,12 @@ const DispersaoArSolo = () => {
       },
       xaxis: {
          title: {
-            text: "Umidade do Solo",
+            text: "Temperatura",
          },
       },
       yaxis: {
          title: {
-            text: "Umidade do Ar",
+            text: "Umidade do Solo",
          },
       },
       markers: {
@@ -62,11 +62,11 @@ const DispersaoArSolo = () => {
       <div>
          <div className={style.title}>
             <h1>Gráfico de Dispersão</h1>
-            <h2>Umidade do Solo x Umidade do Ar</h2>
+            <h2>Temperatura x Umidade do Solo</h2>
          </div>
          <Chart options={options} series={series} type="scatter" height={300} />
       </div>
    );
 };
 
-export default DispersaoArSolo;
+export default DispersaoTemperaturaSolo;

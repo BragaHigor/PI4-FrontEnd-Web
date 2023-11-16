@@ -1,0 +1,8 @@
+.title{
+    display: flex;
+    font-weight: bold;
+    font-size: 22px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
