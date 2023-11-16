@@ -1,6 +1,7 @@
 import Cards from "../Cards/Cards";
-import BasicTable from "../Table/Table";
+// import BasicTable from "../Table/Table";
 import style from "./styleMainDash.module.css";
+import RegressaoDispersao from "../RegressaoDispersao/RegressaoDispersao";
 
 const MainDash = () => {
    return (
@@ -10,7 +11,7 @@ const MainDash = () => {
          </div>
          <Cards />
          <div className={style.Table}>
-            <BasicTable />
+            <RegressaoDispersao />
          </div>
       </div>
    );

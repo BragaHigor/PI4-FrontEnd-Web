@@ -110,20 +110,20 @@ import {
   export const UpdatesData = [
     {
       img: Logo,
-      name: "Andrew Thomas",
-      noti: "has ordered Apple smart watch 2500mh battery.",
-      time: "25 seconds ago",
+      name: "Clima Tempo:",
+      noti: "Para o mês de novembro, a chuva média é de 197 mm na cidade Franca - SP.",
+      time: "25s",
     },
     {
       img: Logo,
-      name: "James Bond",
-      noti: "has received Samsung gadget for charging battery.",
-      time: "30 minutes ago",
+      name: "G1:",
+      noti: "Sol e aumento de nuvens de manhã. Pancadas de chuva à tarde. À noite o tempo fica aberto.",
+      time: "30m",
     },
     {
       img: Logo,
-      name: "Iron Man",
-      noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
-      time: "2 hours ago",
+      name: "Uol:",
+      noti: "Segundo dados do Tempo Agora, a cidade tem previsão de temperaturas entre 22°C e 36°C e 9% de chance de chuvas ao longo desta quarta.",
+      time: "2h",
     },
   ];
