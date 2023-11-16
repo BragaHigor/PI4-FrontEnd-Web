@@ -54,7 +54,7 @@ const RegressaoTemperaturaSolo = () => {
    ];
 
    return (
-      <div>
+      <div className={style.graph}>
          <div className={style.title}>
             <h1>Gráfico de Regressão</h1>
             <h2>Temperatura x Umidade do Solo</h2>
@@ -64,6 +64,7 @@ const RegressaoTemperaturaSolo = () => {
             series={series} 
             type="line" 
             height={300}
+            width={950}
          />
       </div>
    );

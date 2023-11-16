@@ -54,7 +54,7 @@ const RegressaoArSolo = () => {
    ];
 
    return (
-      <div>
+      <div className={style.graph}>
          <div className={style.title}>
             <h1>Gráfico de Regressão</h1>
             <h2>Umidade do Solo x Umidade do Ar</h2>
@@ -64,6 +64,7 @@ const RegressaoArSolo = () => {
             series={series} 
             type="line" 
             height={300}
+            width={950}
          />
       </div>
    );

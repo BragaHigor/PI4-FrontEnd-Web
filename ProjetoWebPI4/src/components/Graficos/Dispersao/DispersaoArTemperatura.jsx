@@ -59,12 +59,16 @@ const DispersaoArTemperatura = () => {
    };
 
    return (
-      <div>
+      <div className={style.graph}>
          <div className={style.title}>
             <h1>Gráfico de Dispersão</h1>
             <h2>Umidade do Ar x Temperatura</h2>
          </div>
-         <Chart options={options} series={series} type="scatter" height={300} />
+         <Chart 
+            options={options} 
+            series={series} type="scatter" 
+            height={300} width={950}
+         />
       </div>
    );
 };

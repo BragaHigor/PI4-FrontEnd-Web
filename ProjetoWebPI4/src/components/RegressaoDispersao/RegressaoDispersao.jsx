@@ -6,6 +6,8 @@ import RegressaoArSolo from "../Graficos/Regressao/RegressaoArSolo";
 import RegressaoArTemperatura from "../Graficos/Regressao/RegressaoArTemperatura";
 import RegressaoTemperaturaSolo from "../Graficos/Regressao/RegressaoTemperaturaSolo";
 
+import style from './styleCharts.module.css'
+
 import { useGraphContext }  from '../../contexts/auth'
 
 const RegressaoDispersao = () => {
@@ -31,7 +33,7 @@ const RegressaoDispersao = () => {
   };
 
   return (
-    <div>
+    <div className={style.Dash}>
       {renderComponent()}
     </div>
   );
