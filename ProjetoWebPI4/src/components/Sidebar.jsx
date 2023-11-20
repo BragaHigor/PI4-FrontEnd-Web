@@ -1,13 +1,21 @@
 import { useState } from "react";
 import style from "./styleSidebar.module.css";
-import { SidebarData, SidebarDispersao, SidebarRegressao } from "../Utils/Data";
+import { SidebarDispersao, SidebarRegressao } from "../Utils/Data";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
-import { useGraphContext } from "../contexts/auth";
+import { useGraphContext, useAuth } from "../contexts/auth";
+import {
+   UilEstate,
+   UilClipboardAlt,
+   UilUsersAlt,
+   UilNinja,
+} from "@iconscout/react-unicons";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-   const [selected, setSelected] = useState(0);
    const { setSelectedGraph } = useGraphContext();
+   const { logout } = useAuth();
+   const navigate = useNavigate();
 
    const [expanded, setExpaned] = useState(true);
 
@@ -20,6 +28,16 @@ const Sidebar = () => {
       },
    };
    console.log(window.innerWidth);
+
+   const handleLogout = () => {
+      console.log("Logout")
+      // Aqui você executa a função de logout para remover o token
+      logout();
+      console.log("passo")
+      // Depois de remover o token, redirecione para a tela de login
+      navigate("/");
+   };
+
    return (
       <>
          <div
@@ -39,20 +57,22 @@ const Sidebar = () => {
             </div>
 
             <div className={style.menu}>
-               {SidebarData.map((item, index) => {
-                  return (
-                     <div
-                        className={
-                           selected === index ? "menuItem active" : "menuItem"
-                        }
-                        key={index}
-                        onClick={() => setSelected(index)}
-                     >
-                        <item.icon />
-                        <span>{item.heading}</span>
-                     </div>
-                  );
-               })}
+               <div>
+                  <UilEstate />
+                  <span>Dashboard</span>
+               </div>
+               <div>
+                  <UilClipboardAlt />
+                  <span>Grafana</span>
+               </div>
+               <div>
+                  <UilUsersAlt />
+                  <span>Perfil</span>
+               </div>
+               <div onClick={handleLogout}>
+                  <UilNinja />
+                  <span>Sair</span>
+               </div>
             </div>
 
             <div className={style.logo2}>
@@ -61,9 +81,7 @@ const Sidebar = () => {
             <div className={style.menu2}>
                {SidebarDispersao.map((item, index) => (
                   <div
-                     className={
-                        selected === index ? "menuItem active" : "menuItem"
-                     }
+                     className={style.menuTitle}
                      key={index}
                      onClick={() => setSelectedGraph(item.graphType)}
                   >
@@ -78,9 +96,7 @@ const Sidebar = () => {
             <div className={style.menu2}>
                {SidebarRegressao.map((item, index) => (
                   <div
-                     className={
-                        selected === index ? "menuItem active" : "menuItem"
-                     }
+                     className={style.menuTitle2}
                      key={index}
                      onClick={() => setSelectedGraph(item.graphType)}
                   >

@@ -57,7 +57,7 @@
     margin-top: 22px;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     cursor: pointer;
   }
 
@@ -71,6 +71,14 @@
   }
 
   .menuTitle {
+    margin-top: 8px;
+    cursor: pointer;
+    color: #292934;
+    transition: transform 0.3s ease;
+  }
+
+  .menuTitle2 {
+    margin-top: 8px;
     cursor: pointer;
     color: #292934;
     transition: transform 0.3s ease;
