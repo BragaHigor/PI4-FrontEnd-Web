@@ -33,9 +33,7 @@ export const AuthProvider = ({ children }) => {
    const logout = () => {
       setUser(null);
 
-      localStorage.removeItem("Page");
       localStorage.removeItem("token_API");
-      localStorage.removeItem("URL");
    };
 
    const value = {

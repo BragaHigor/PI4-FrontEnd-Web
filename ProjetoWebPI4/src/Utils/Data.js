@@ -3,8 +3,10 @@ import {
     UilEstate,
     UilClipboardAlt,
     UilUsersAlt,
+    UilNinja
   } from "@iconscout/react-unicons";
   
+  // import { IconSair } from '../assets/sair.png'
   
   // Recent Card Imports
   import Logo from "../assets/icon.png";
@@ -22,6 +24,10 @@ import {
     {
       icon: UilUsersAlt,
       heading: "Perfil",
+    },
+    {
+      icon: UilNinja,
+      heading: "Sair",
     },
   ];
 

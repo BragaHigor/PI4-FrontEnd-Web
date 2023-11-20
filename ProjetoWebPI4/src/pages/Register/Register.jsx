@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //react
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 //router
 import { Link, useNavigate } from "react-router-dom";
@@ -15,13 +15,13 @@ import { Link, useNavigate } from "react-router-dom";
 import Background from "../../assets/leaves.jpg";
 
 //utils
-import {
-   validateText,
-   validateEmail,
-   validatePassword,
-   validateCpf,
-   validateCep,
-} from "../../Utils/regex";
+// import {
+//    validateText,
+//    validateEmail,
+//    validatePassword,
+//    validateCpf,
+//    validateCep,
+// } from "../../Utils/regex";
 
 //components
 import Button from "../../components/ButtonLoginRegister/Button";
@@ -40,128 +40,101 @@ const Register = () => {
    const [passwordConf, setPasswordConf] = useState("");
 
    //STATE DE ERROR CLIENTE
-   const [firstNameErr, setFirstNameErr] = useState(false);
-   const [lastNameErr, setLastNameErr] = useState(false);
-   const [serialErr, setSerialErr] = useState(false);
-   const [emailErr, setEmailErr] = useState(false);
-   const [passwordErr, setPasswordErr] = useState(false);
+   // const [firstNameErr, setFirstNameErr] = useState(false);
+   // const [lastNameErr, setLastNameErr] = useState(false);
+   // const [serialErr, setSerialErr] = useState(false);
+   // const [emailErr, setEmailErr] = useState(false);
+   // const [passwordErr, setPasswordErr] = useState(false);
    const [error, setError] = useState("");
 
    const navigate = useNavigate();
 
-   //VALIDAÇÃO FORA DO INPUT
-   const onBlurHandler = (e) => {
-      switch (e.target.name) {
-         //CLIENTE
-         case "firstName":
-            if (!validateText.test(firstName) && firstName.trim() !== "") {
-               return setFirstNameErr(true);
-            } else {
-               return setFirstNameErr(false);
-            }
+   // //VALIDAÇÃO FORA DO INPUT
+   // const onBlurHandler = (e) => {
+   //    switch (e.target.name) {
+   //       //CLIENTE
+   //       case "firstName":
+   //          if (!validateText.test(firstName) && firstName.trim() !== "") {
+   //             return setFirstNameErr(true);
+   //          } else {
+   //             return setFirstNameErr(false);
+   //          }
 
-         case "lastName":
-            if (!validateCpf.test(lastName) && lastName.trim() !== "") {
-               return setLastNameErr(true);
-            } else {
-               return setLastNameErr(false);
-            }
+   //       case "lastName":
+   //          if (!validateText.test(lastName) && lastName.trim() !== "") {
+   //             return setLastNameErr(true);
+   //          } else {
+   //             return setLastNameErr(false);
+   //          }
 
-         case "serial":
-            if (!validateCep.test(serial) && serial.trim() !== "") {
-               return setSerialErr(true);
-            } else {
-               return setSerialErr(false);
-            }
+   //       case "serial":
+   //          if (!validateCep.test(serial) && serial.trim() !== "") {
+   //             return setSerialErr(true);
+   //          } else {
+   //             return setSerialErr(false);
+   //          }
 
-         case "email":
-            if (!validateEmail.test(email) && email.trim() !== "") {
-               return setEmailErr(true);
-            } else {
-               return setEmailErr(false);
-            }
+   //       case "email":
+   //          if (!validateEmail.test(email) && email.trim() !== "") {
+   //             return setEmailErr(true);
+   //          } else {
+   //             return setEmailErr(false);
+   //          }
 
-         case "password":
-            if (!validatePassword.test(password) && password.trim() !== "") {
-               return setPasswordErr(true);
-            } else {
-               return setPasswordErr(false);
-            }
-      }
-   };
+   //       case "password":
+   //          if (!validatePassword.test(password) && password.trim() !== "") {
+   //             return setPasswordErr(true);
+   //          } else {
+   //             return setPasswordErr(false);
+   //          }
+   //    }
+   // };
 
    //MENSAGEM DE ERRO DO INPUT
-   useEffect(() => {
-      if (!validateText.test(firstName) && firstName.trim() !== "") {
-         return setFirstNameErr(true);
-      } else {
-         setFirstNameErr(false);
-      }
+   // useEffect(() => {
+   //    if (!validateText.test(firstName) && firstName.trim() !== "") {
+   //       return setFirstNameErr(true);
+   //    } else {
+   //       setFirstNameErr(false);
+   //    }
 
-      if (validateCpf.test(lastName) || lastName.trim() === "") {
-         setLastNameErr(false);
-      }
+   //    if (validateCpf.test(lastName) || lastName.trim() === "") {
+   //       setLastNameErr(false);
+   //    }
 
-      if (!validateCep.test(serial) && serial.trim() !== "") {
-         return setSerialErr(true);
-      } else {
-         setSerialErr(false);
-      }
+   //    if (!validateCep.test(serial) && serial.trim() !== "") {
+   //       return setSerialErr(true);
+   //    } else {
+   //       setSerialErr(false);
+   //    }
 
-      if (validateEmail.test(email) || email.trim() === "") {
-         setEmailErr(false);
-      }
+   //    if (validateEmail.test(email) || email.trim() === "") {
+   //       setEmailErr(false);
+   //    }
 
-      if (validatePassword.test(password) || password.trim() === "") {
-         setPasswordErr(false);
-      }
-   }, [firstName, lastName, serial, email, password]);
+   //    if (validatePassword.test(password) || password.trim() === "") {
+   //       setPasswordErr(false);
+   //    }
+   // }, [firstName, lastName, serial, email, password]);
 
    //API
    const registerSubmit = async () => {
       try {
-         const response = await http.post("/user", {
-            firstName,
-            lastName,
-            serial,
+         const response = await http.post("/users", {
+            name: firstName,
+            // serial,
             email,
             password,
          });
 
+         console.log('RESPONSE', response.data);
          navigate("/");
-         console.log(response);
+         return response;
       } catch (error) {
          if (error.response) {
             const { data } = error.response;
 
-            if (data.err === "CPF inválido") {
-               toast.error("CPF inválido. Verifique o CPF digitado.", {
-                  className: "error-toast",
-                  position: "bottom-left",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-               });
-            } else if (data.err === "CEP inválido") {
-               toast.error(
-                  "CEP inválido. Por favor, verifique o CEP digitado.",
-                  {
-                     className: "error-toast",
-                     position: "bottom-left",
-                     autoClose: 5000,
-                     hideProgressBar: false,
-                     closeOnClick: true,
-                     pauseOnHover: true,
-                     draggable: true,
-                     progress: undefined,
-                     theme: "colored",
-                  }
-               );
-            } else if (data.err === "email inválido") {
+            if (data.err === "email inválido") {
                toast.error(
                   "Email inválido. Por favor, verifique o Email digitado.",
                   {
@@ -271,12 +244,12 @@ const Register = () => {
          serial &&
          email &&
          password &&
-         passwordConf &&
-         firstNameErr &&
-         lastNameErr &&
-         serialErr &&
-         emailErr &&
-         passwordErr
+         passwordConf
+         // firstNameErr &&
+         // lastNameErr &&
+         // serialErr &&
+         // emailErr &&
+         // passwordErr
       )
          if (registerSubmit()) {
             //SE TUDO ESTIVER OK ELE CADASTRA O USUÁRIO
@@ -304,15 +277,15 @@ const Register = () => {
                            setFirstName(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
-                     <div>
+                     {/* <div>
                         {firstNameErr && (
                            <p className={style.labelError}>
                               Digite um nome válido
                            </p>
                         )}
-                     </div>
+                     </div> */}
                      <Input
                         name="lastName"
                         type="text"
@@ -323,15 +296,15 @@ const Register = () => {
                            setLastName(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
-                     <div>
+                     {/* <div>
                         {lastNameErr && (
                            <p className={style.labelError}>
                               Digite um CPF válido
                            </p>
                         )}
-                     </div>
+                     </div> */}
                      <Input
                         name="serial"
                         type="text"
@@ -342,15 +315,15 @@ const Register = () => {
                            setSerial(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
-                     <div>
+                     {/* <div>
                         {serialErr && (
                            <p className={style.labelError}>
                               Digite um CEP válido
                            </p>
                         )}
-                     </div>
+                     </div> */}
                      <Input
                         name="email"
                         type="email"
@@ -361,15 +334,15 @@ const Register = () => {
                            setEmail(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
-                     <div>
+                     {/* <div>
                         {emailErr && (
                            <p className={style.labelError}>
                               Digite um e-mail válido
                            </p>
                         )}
-                     </div>
+                     </div> */}
                      <Input
                         name="password"
                         type="password"
@@ -380,15 +353,15 @@ const Register = () => {
                            setPassword(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
-                     <div>
+                     {/* <div>
                         {passwordErr && (
                            <p className={style.labelError}>
                               Deve ter 6+ caracteres, 1 letra e 1 número
                            </p>
                         )}
-                     </div>
+                     </div> */}
                      <Input
                         type="password"
                         placeholder="Confirm Password"
@@ -398,7 +371,7 @@ const Register = () => {
                            setPasswordConf(e.target.value),
                            setError(""),
                         ]}
-                        onBlur={onBlurHandler}
+                        // onBlur={onBlurHandler}
                      />
                   </div>
                </div>

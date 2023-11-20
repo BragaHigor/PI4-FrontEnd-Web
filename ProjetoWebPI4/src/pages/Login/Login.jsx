@@ -30,22 +30,20 @@ const Login = () => {
    //API
    const signinSubmit = async () => {
       try {
-         const response = await http.post("/user/auth", {
+         const response = await http.post("/users/auth", {
             email,
             password,
          });
          const token = response.data.token;
 
-         console.log('Token', token);
+         console.log("Token", token);
          console.log(response);
 
          localStorage.clear("token_API");
 
          localStorage.setItem("token_API", JSON.stringify(response.data.token));
-         // localStorage.setItem("URL", JSON.stringify(response.config.url));
 
          navigate("/dashboard");
-
       } catch (error) {
          // if (error.response) {
          //    if (error.response.data.error === "Senha incorreta.") {
@@ -93,7 +91,7 @@ const Login = () => {
          //    }
          // }
 
-         console.log('ERROR', error);
+         console.log("ERROR", error);
       }
    };
 
