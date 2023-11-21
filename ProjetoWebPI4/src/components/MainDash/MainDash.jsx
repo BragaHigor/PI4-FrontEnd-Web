@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Cards from "../Cards/Cards";
-// import BasicTable from "../Table/Table";
 import style from "./styleMainDash.module.css";
 import RegressaoDispersao from "../RegressaoDispersao/RegressaoDispersao";
 import http from "../../db/http";
