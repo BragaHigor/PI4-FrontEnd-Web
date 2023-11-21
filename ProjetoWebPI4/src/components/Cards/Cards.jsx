@@ -17,6 +17,8 @@ const Cards = () => {
               png={card.png}
               seriesDia={card.seriesDia}
               seriesHora={card.seriesHora}
+              eixoXDia={card.eixoXDia}
+              eixoXHora={card.eixoXHora}
               unidade={card.unidade}
               medida={card.medida}
             />

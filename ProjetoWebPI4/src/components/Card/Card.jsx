@@ -92,6 +92,7 @@ function CompactCard({ param, setExpanded, handleOptionChange }) {
 
 // Expanded Card
 function ExpandedCardDia({ param, setExpanded }) {
+   
    const data = {
       options: {
          chart: {
@@ -125,23 +126,15 @@ function ExpandedCardDia({ param, setExpanded }) {
          },
          tooltip: {
             x: {
-               format: "dd/MM/yy HH:mm",
+               format: "dd/MM",
             },
          },
          grid: {
             show: true,
          },
          xaxis: {
-            type: "datetime",
-            categories: [
-               "2018-09-19T00:00:00.000Z",
-               "2018-09-19T01:30:00.000Z",
-               "2018-09-19T02:30:00.000Z",
-               "2018-09-19T03:30:00.000Z",
-               "2018-09-19T04:30:00.000Z",
-               "2018-09-19T05:30:00.000Z",
-               "2018-09-19T06:30:00.000Z",
-            ],
+            type: "date",
+            categories: param.eixoXDia[0].xaxis.categories, // Use os dados do eixo X correspondentes
          },
       },
    };
@@ -173,7 +166,7 @@ function ExpandedCardDia({ param, setExpanded }) {
                <div className={style.chartGrafico}>
                   <Chart
                      options={data.options}
-                     series={param.seriesDia}
+                     series={param.seriesHora}
                      type="area"
                      height={400}
                      width={600}
@@ -246,23 +239,15 @@ function ExpandedCardHora({ param, setExpanded }) {
          },
          tooltip: {
             x: {
-               format: "dd/MM/yy HH:mm",
+               format: "HH:mm",
             },
          },
          grid: {
             show: true,
          },
          xaxis: {
-            type: "datetime",
-            categories: [
-               "2018-09-19T00:00:00.000Z",
-               "2018-09-19T01:30:00.000Z",
-               "2018-09-19T02:30:00.000Z",
-               "2018-09-19T03:30:00.000Z",
-               "2018-09-19T04:30:00.000Z",
-               "2018-09-19T05:30:00.000Z",
-               "2018-09-19T06:30:00.000Z",
-            ],
+            type: "time",
+            categories: param.eixoXHora[0].xaxis.categories, // Use os dados do eixo X correspondentes
          },
       },
    };
@@ -294,7 +279,7 @@ function ExpandedCardHora({ param, setExpanded }) {
                <div className={style.chartGrafico}>
                   <Chart
                      options={data.options}
-                     series={param.seriesHora}
+                     series={param.seriesDia}
                      type="area"
                      height={400}
                      width={600}

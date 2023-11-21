@@ -42,16 +42,44 @@ export const cardsData = [
       value: "0000",
       unidade: 34,
       medida: "%",
+      eixoXDia: [
+         {
+            xaxis: {
+               name: "Umidade do AR",
+               categories: [
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+               ],
+            },
+         },
+      ],
       seriesDia: [
          {
             name: "Umidade do AR",
-            data: [31, 40, 28, 51, 42, 109, 100],
+            data: [31, 40, 28, 51, 42],
+         },
+      ],
+      eixoXHora: [
+         {
+            xaxis: {
+               name: "Umidade do AR",
+               categories: [
+                  "17:00",
+                  "18:30",
+                  "19:30",
+                  "20:30",
+                  "21:30",
+               ],
+            },
          },
       ],
       seriesHora: [
          {
             name: "Umidade do AR",
-            data: [45, 77, 22, 6, 48, 15, 30],
+            data: [45, 77, 22, 6, 48],
          },
       ],
    },
@@ -65,16 +93,44 @@ export const cardsData = [
       value: "14,270",
       unidade: 25,
       medida: "%",
+      eixoXDia: [
+         {
+            xaxis: {
+               name: "Umidade do Solo",
+               categories: [
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+               ],
+            },
+         },
+      ],
       seriesDia: [
          {
             name: "Umidade do Solo",
-            data: [22, 57, 2, 78, 48, 33, 16],
+            data: [22, 57, 2, 78, 48],
+         },
+      ],
+      eixoXHora: [
+         {
+            xaxis: {
+               name: "Umidade do Solo",
+               categories: [
+                  "00:00",
+                  "01:30",
+                  "02:30",
+                  "03:30",
+                  "04:30",
+               ],
+            },
          },
       ],
       seriesHora: [
          {
-            name: "Umidade do AR",
-            data: [45, 77, 22, 6, 48, 15, 30],
+            name: "Umidade do Solo",
+            data: [45, 77, 22, 6, 48],
          },
       ],
    },
@@ -88,16 +144,44 @@ export const cardsData = [
       value: "4,270",
       unidade: 15,
       medida: "°C",
+      eixoXDia: [
+         {
+            xaxis: {
+               name: "Temperatura",
+               categories: [
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+                  "09-19",
+               ],
+            },
+         },
+      ],
       seriesDia: [
          {
             name: "Temperatura",
-            data: [10, 25, 15, 30, 12, 15, 20],
+            data: [10, 25, 15, 30, 12],
+         },
+      ],
+      eixoXHora: [
+         {
+            xaxis: {
+               name: "Temperatura",
+               categories: [
+                  "00:00",
+                  "01:30",
+                  "02:30",
+                  "03:30",
+                  "04:30",
+               ],
+            },
          },
       ],
       seriesHora: [
          {
-            name: "Umidade do AR",
-            data: [45, 77, 22, 6, 48, 15, 30],
+            name: "Temperatura",
+            data: [45, 77, 22, 6, 48],
          },
       ],
    },
