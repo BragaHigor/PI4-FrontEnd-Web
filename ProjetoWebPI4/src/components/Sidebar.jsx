@@ -8,9 +8,10 @@ import {
    UilEstate,
    UilClipboardAlt,
    UilUsersAlt,
-   UilNinja,
 } from "@iconscout/react-unicons";
+import IconSair from "../assets/sair.png";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal/Modal";
 
 const Sidebar = () => {
    const { setSelectedGraph } = useGraphContext();
@@ -18,6 +19,7 @@ const Sidebar = () => {
    const navigate = useNavigate();
 
    const [expanded, setExpaned] = useState(true);
+   const [isProfileModalOpen, setProfileModalOpen] = useState(false);
 
    const sidebarVariants = {
       true: {
@@ -30,12 +32,20 @@ const Sidebar = () => {
    console.log(window.innerWidth);
 
    const handleLogout = () => {
-      console.log("Logout")
+      console.log("Logout");
       // Aqui você executa a função de logout para remover o token
       logout();
-      console.log("passo")
+      console.log("passo");
       // Depois de remover o token, redirecione para a tela de login
       navigate("/");
+   };
+
+   const openProfileModal = () => {
+      setProfileModalOpen(true);
+   };
+
+   const closeProfileModal = () => {
+      setProfileModalOpen(false);
    };
 
    return (
@@ -65,12 +75,12 @@ const Sidebar = () => {
                   <UilClipboardAlt />
                   <span>Grafana</span>
                </div>
-               <div>
+               <div onClick={openProfileModal}>
                   <UilUsersAlt />
                   <span>Perfil</span>
                </div>
                <div onClick={handleLogout}>
-                  <UilNinja />
+                  <img src={IconSair} alt="" width={25} />
                   <span>Sair</span>
                </div>
             </div>
@@ -105,6 +115,9 @@ const Sidebar = () => {
                ))}
             </div>
          </motion.div>
+         {isProfileModalOpen && (
+            <Modal closeModal={closeProfileModal} />
+         )}
       </>
    );
 };
