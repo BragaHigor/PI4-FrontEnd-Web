@@ -7,6 +7,7 @@ import { UilTimes } from "@iconscout/react-unicons";
 import Chart from "react-apexcharts";
 import Grafico from "../Graficos/Grafico";
 import Dados from "../Dados/Dados";
+import DadoSolo from "../Dados/DadoSolo";
 
 // parent Card
 const Card = (props) => {
@@ -92,7 +93,6 @@ function CompactCard({ param, setExpanded, handleOptionChange }) {
 
 // Expanded Card
 function ExpandedCardDia({ param, setExpanded }) {
-   
    const data = {
       options: {
          chart: {
@@ -134,7 +134,7 @@ function ExpandedCardDia({ param, setExpanded }) {
          },
          xaxis: {
             type: "date",
-            categories: param.eixoXDia[0].xaxis.categories, // Use os dados do eixo X correspondentes
+            categories: param.eixoXDia[0].xaxis.categories,
          },
       },
    };
@@ -173,29 +173,27 @@ function ExpandedCardDia({ param, setExpanded }) {
                   />
                </div>
                <div className={style.Dados}>
+                  <Dados 
+                     title="Média" 
+                     value={param.mediaDia} 
+                     title2="Moda" 
+                     value2={param.modaDia} 
+                  />
                   <Dados
-                     title="Média"
-                     value={300}
-                     title2="Modal/Mediana"
-                     value2={100}
+                     title="Mediana"
+                     value={param.medianaDia}
+                     title2="Curtose"
+                     value2={param.curtoseDia}
                   />
                   <Dados
                      title="Desvio Padrão"
-                     value={1.8}
+                     value={param.desvioPadraoDia}
                      title2="Assimetria"
-                     value2={25}
+                     value2={param.assimetriaDia}
                   />
-                  <Dados
-                     title="Curtose"
-                     value={70}
-                     title2="Probabilidade"
-                     value2={80}
-                  />
-                  <Dados
-                     title="Regressão"
-                     value={15}
-                     title2="Inferência estatística"
-                     value2={80}
+                  <DadoSolo
+                     title="Probabilidade da Planta Desidratar"
+                     value={param.probabilidadeDia}
                   />
                </div>
             </div>
@@ -247,7 +245,7 @@ function ExpandedCardHora({ param, setExpanded }) {
          },
          xaxis: {
             type: "time",
-            categories: param.eixoXHora[0].xaxis.categories, // Use os dados do eixo X correspondentes
+            categories: param.eixoXHora[0].xaxis.categories,
          },
       },
    };
@@ -286,29 +284,27 @@ function ExpandedCardHora({ param, setExpanded }) {
                   />
                </div>
                <div className={style.Dados}>
+                  <Dados 
+                     title="Média" 
+                     value={param.mediaHora} 
+                     title2="Moda" 
+                     value2={param.modaHora} 
+                  />
                   <Dados
-                     title="Média"
-                     value={400}
-                     title2="Modal/Mediana"
-                     value2={100}
+                     title="Mediana"
+                     value={param.medianaHora}
+                     title2="Curtose"
+                     value2={param.curtoseHora}
                   />
                   <Dados
                      title="Desvio Padrão"
-                     value={1.8}
+                     value={param.desvioPadraoHora}
                      title2="Assimetria"
-                     value2={25}
+                     value2={param.assimetriaHora}
                   />
-                  <Dados
-                     title="Curtose"
-                     value={1000}
-                     title2="Probabilidade"
-                     value2={80}
-                  />
-                  <Dados
-                     title="Regressão"
-                     value={15}
-                     title2="Inferência estatística"
-                     value2={80}
+                  <DadoSolo
+                     title="Probabilidade da Planta Desidratar"
+                     value={param.probabilidadeHora}
                   />
                </div>
             </div>

@@ -38,20 +38,26 @@ export const cardsData = [
          backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
          boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
-      barValue: 40,
-      value: "0000",
       unidade: 34,
       medida: "%",
+      //Dia
+      mediaDia: 1,
+      modaDia: 2,
+      medianaDia: 3,
+      curtoseDia: 4,
+      desvioPadraoDia: 5,
+      assimetriaDia: 6,
+      probabilidadeDia: 7,
       eixoXDia: [
          {
             xaxis: {
                name: "Umidade do AR",
                categories: [
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
+                  "09-11",
+                  "10-11",
+                  "11-11",
+                  "12-11",
+                  "13-11",
                ],
             },
          },
@@ -62,6 +68,14 @@ export const cardsData = [
             data: [31, 40, 28, 51, 42],
          },
       ],
+      //Hora
+      mediaHora: 8,
+      modaHora: 9,
+      medianaHora: 10,
+      curtoseHora: 11,
+      desvioPadraoHora: 12,
+      assimetriaHora: 13,
+      probabilidadeHora: 14,
       eixoXHora: [
          {
             xaxis: {
@@ -89,10 +103,16 @@ export const cardsData = [
          backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
          boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
-      barValue: 80,
-      value: "14,270",
       unidade: 25,
       medida: "%",
+      //Dia
+      mediaDia: 15,
+      modaDia: 16,
+      medianaDia: 17,
+      curtoseDia: 18,
+      desvioPadraoDia: 19,
+      assimetriaDia: 20,
+      probabilidadeDia: 21,
       eixoXDia: [
          {
             xaxis: {
@@ -113,6 +133,14 @@ export const cardsData = [
             data: [22, 57, 2, 78, 48],
          },
       ],
+      //Hora
+      mediaHora: 22,
+      modaHora: 23,
+      medianaHora: 24,
+      curtoseHora: 25,
+      desvioPadraoHora: 26,
+      assimetriaHora: 27,
+      probabilidadeHora: 28,
       eixoXHora: [
          {
             xaxis: {
@@ -140,10 +168,16 @@ export const cardsData = [
          backGround: "linear-gradient(180deg, #ECEDEF 0%, #ECEDEF 100%)",
          boxShadow: "0px 10px 20px 0px #A7A7A7",
       },
-      barValue: 60,
-      value: "4,270",
       unidade: 15,
       medida: "°C",
+      //Dia
+      mediaDia: 29,
+      modaDia: 30,
+      medianaDia: 31,
+      curtoseDia: 32,
+      desvioPadraoDia: 33,
+      assimetriaDia: 34,
+      probabilidadeDia: 35,
       eixoXDia: [
          {
             xaxis: {
@@ -164,6 +198,14 @@ export const cardsData = [
             data: [10, 25, 15, 30, 12],
          },
       ],
+      //Hora
+      mediaHora: 36,
+      modaHora: 37,
+      medianaHora: 38,
+      curtoseHora: 39,
+      desvioPadraoHora: 40,
+      assimetriaHora: 41,
+      probabilidadeHora: 42,
       eixoXHora: [
          {
             xaxis: {
