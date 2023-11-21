@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import style from "./styleSidebar.module.css";
 import { SidebarDispersao, SidebarRegressao } from "../Utils/Data";
@@ -20,6 +21,7 @@ const Sidebar = () => {
 
    const [expanded, setExpaned] = useState(true);
    const [isProfileModalOpen, setProfileModalOpen] = useState(false);
+   const [userName, setUserName] = useState("")
 
    const sidebarVariants = {
       true: {
@@ -46,6 +48,10 @@ const Sidebar = () => {
 
    const closeProfileModal = () => {
       setProfileModalOpen(false);
+   };
+
+   const updateUserName = (newName) => {
+      setUserName(newName);
    };
 
    return (
@@ -116,7 +122,7 @@ const Sidebar = () => {
             </div>
          </motion.div>
          {isProfileModalOpen && (
-            <Modal closeModal={closeProfileModal} />
+             <Modal closeModal={closeProfileModal} updateUserName={updateUserName} />
          )}
       </>
    );

@@ -1,28 +1,38 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./styleModal.module.css";
 import http from "../../db/http";
 
-const Modal = ({ closeModal }) => {
+const Modal = ({ closeModal, updateUserName }) => {
    const [nome, setNome] = useState("");
-   const [sobrenome, setSobrenome] = useState("");
-   const [serial, setSerial] = useState("");
+   const [email, setEmail] = useState("");
+   const [clickButton, setClickButton] = useState(false);
 
-   const handleSave = async () => {
-      console.log('chegou no botao')
-      try {
-        const response = await http.put("/users", {
-          name: nome,
-         //  lastName: sobrenome,
-         //  serialNumber: serial,
-        });
-  
-        console.log("Dados atualizados com sucesso", response.data);
-        closeModal(); // Feche o modal após a atualização bem-sucedida
-      } catch (error) {
-        console.error("Erro ao atualizar dados", error);
+   useEffect(() => {
+      const fetchData = async () => {
+         console.log("chegou no botao");
+         try {
+            const response = await http.put("/users", {
+               user: { name: `${nome}`, email: email },
+            });
+
+            console.log("Dados atualizados com sucesso", response.data);
+            // Atualize o nome do usuário na tela usando a função passada como prop
+            updateUserName(nome);
+            closeModal(); // Feche o modal após a atualização bem-sucedida
+            window.location.reload(false);
+         } catch (error) {
+            console.error("Erro ao atualizar dados", error);
+         }
+
+         setClickButton(false);
+      };
+
+      if (clickButton) {
+         fetchData(); // Chame a função fetchData se clickButton for verdadeiro
       }
-    };
+   }, [clickButton, closeModal, nome, email, updateUserName]);
 
    return (
       <div className={style.modalOverlay}>
@@ -40,24 +50,22 @@ const Modal = ({ closeModal }) => {
                      onChange={(e) => setNome(e.target.value)}
                   />
                   <br />
-                  <input
-                     type="text"
-                     placeholder="Sobrenome"
-                     value={sobrenome}
-                     onChange={(e) => setSobrenome(e.target.value)}
-                  />
-                  <br />
-                  <input
-                     type="text"
-                     placeholder="Serial"
-                     value={serial}
-                     onChange={(e) => setSerial(e.target.value)}
-                  />
-                  <br />
+                  <div>
+                     <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                     />
+                     <br />
+                  </div>
                </div>
-               <button className={style.button} onClick={handleSave}>
-            Salvar
-          </button>
+               <button
+                  className={style.button}
+                  onClick={() => setClickButton(true)}
+               >
+                  Salvar
+               </button>
             </div>
          </div>
       </div>
