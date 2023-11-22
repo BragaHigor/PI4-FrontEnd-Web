@@ -21,7 +21,7 @@ const Sidebar = () => {
 
    const [expanded, setExpaned] = useState(true);
    const [isProfileModalOpen, setProfileModalOpen] = useState(false);
-   const [userName, setUserName] = useState("")
+   const [userName, setUserName] = useState("");
 
    const sidebarVariants = {
       true: {
@@ -32,6 +32,10 @@ const Sidebar = () => {
       },
    };
    console.log(window.innerWidth);
+
+   const handleUpdate = () => {
+      navigate("/dashboard");
+   };
 
    const handleLogout = () => {
       console.log("Logout");
@@ -73,7 +77,7 @@ const Sidebar = () => {
             </div>
 
             <div className={style.menu}>
-               <div>
+               <div onClick={handleUpdate}>
                   <UilEstate />
                   <span>Dashboard</span>
                </div>
@@ -118,7 +122,10 @@ const Sidebar = () => {
             </div>
          </motion.div>
          {isProfileModalOpen && (
-             <Modal closeModal={closeProfileModal} updateUserName={updateUserName} />
+            <Modal
+               closeModal={closeProfileModal}
+               updateUserName={updateUserName}
+            />
          )}
       </>
    );

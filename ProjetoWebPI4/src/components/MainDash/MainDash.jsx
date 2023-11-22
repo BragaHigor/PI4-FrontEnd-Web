@@ -31,15 +31,21 @@ const MainDash = () => {
 
       fetchUsers();
       fetchEquipments().then((res) => {
-         setEquipamento(res)
+         setEquipamento(res);
       });
    }, []);
 
    return (
       <div className={style.MainDash}>
-         <div className={style.Title}>
-            <h1>Bem Vindo: {nomeCliente}</h1>
-            <h1>Serial Number: {equipamento}</h1>
+         <div className={style.Cabecalho}>
+            <div className={style.Title1}>
+               <h1>Bem-Vindo(a): &nbsp;</h1>
+               <span> {nomeCliente}</span>
+            </div>
+            <div className={style.Title2}>
+               <h1>Serial Number: &nbsp;</h1>
+               <span> {equipamento}</span>
+            </div>
          </div>
          <Cards />
          <div className={style.Table}>

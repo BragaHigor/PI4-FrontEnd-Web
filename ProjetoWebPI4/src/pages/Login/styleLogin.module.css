@@ -5,6 +5,7 @@
    width: 100%;
    height: 100%;
    position: inherit;
+
 }
 
 .login {
@@ -16,6 +17,7 @@
    height: 100vh;
 
    background-color: white;
+
 }
 
 .form {
@@ -30,6 +32,7 @@
    max-width: 350px;
    padding: 20px;
    border-radius: 5px;
+
 }
 
 .cabecalho {
@@ -45,6 +48,7 @@
    font-size: 60px;
    line-height: 75px;
    color: #676767;
+   font-family: 'Inter', sans-serif;
 }
 
 .labelText {
@@ -54,17 +58,20 @@
    font-size: 50px;
    line-height: 75px;
    color: #676767;
+   font-family: 'Inter', sans-serif;
 }
 
 .label {
    font-family: "Roboto";
    font-size: 16px;
    color: #000000;
+   font-family: 'Inter', sans-serif;
 }
 
 .labelError {
    font-size: 14px;
    color: red;
+   font-family: 'Inter', sans-serif;
 }
 
 .link {
@@ -72,6 +79,7 @@
    cursor: pointer;
    text-decoration: none;
    color: #676767;
+   font-family: 'Inter', sans-serif;
 }
 
 .animacao {
@@ -79,4 +87,5 @@
    height: 100vh;
    justify-content: center;
    align-items: center;
+   font-family: 'Inter', sans-serif;
 }

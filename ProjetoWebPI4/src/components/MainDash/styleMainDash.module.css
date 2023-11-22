@@ -6,13 +6,31 @@
     /* gap: 30px; */
 }
 
-.Title{
-    width: 300px;
+.Cabecalho{
+    width: 600px;
     height: 50px;
     margin-top: 65px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-direction: column;
+}
+
+.Cabecalho span{
+    height: 5rem;
+    font-weight: bold;
+    font-size: 16px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 4%;
+}
+
+.Title1{
+    display: flex;
+}
+
+.Title2{
+    display: flex;
 }
 
 .Table{
