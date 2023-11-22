@@ -67,26 +67,26 @@
     gap: 1rem;
     cursor: pointer;
     color: #292934;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
   }
 
   .menuTitle {
     margin-top: 8px;
     cursor: pointer;
     color: #292934;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
   }
 
   .menuTitle2 {
     margin-top: 8px;
     cursor: pointer;
     color: #292934;
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
   }
   
   .menuTitle:hover {
     color: #006A42;
-    transform: scale(5); /* Ajuste o valor conforme necessário para controlar o crescimento */
+    /* transform: scale(5); Ajuste o valor conforme necessário para controlar o crescimento */
   }
 
   .menuItem {

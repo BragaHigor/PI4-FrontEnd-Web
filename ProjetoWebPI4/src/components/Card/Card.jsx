@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./styleCard.module.css";
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
@@ -8,9 +8,13 @@ import Chart from "react-apexcharts";
 import Grafico from "../Graficos/Grafico";
 import Dados from "../Dados/Dados";
 import DadoSolo from "../Dados/DadoSolo";
+import { APIData } from "../../Utils/Data";
 
 // parent Card
 const Card = (props) => {
+
+   APIData()
+
    const [expanded, setExpanded] = useState(false);
    const [selectedOption, setSelectedOption] = useState("Dia");
 

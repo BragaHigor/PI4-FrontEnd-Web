@@ -1,4 +1,6 @@
 import Logo from "../assets/icon.png";
+import { useState, useEffect } from "react";
+import http from "../db/http";
 
 export const SidebarDispersao = [
    {
@@ -26,11 +28,94 @@ export const SidebarRegressao = [
    },
    {
       heading: "Temperatura x Solo",
+
       graphType: "RegressaoTemperaturaSolo",
    },
 ];
 
 // Analytics Cards Data
+export const APIData = () => {
+   //EQUIPAMENTO
+   const [serialNumber, setSerialNumber] = useState("");
+
+   //DIAS
+   const [mean, setMean] = useState("");
+   const [mode, setMode] = useState("");
+   const [median, setMedian] = useState("");
+   const [standardDeviation, setStandardDeviation] = useState("");
+   const [skewness, setSkewness] = useState("");
+   const [kurtosis, setKurtosis] = useState("");
+   const [hydrationProbabilityDay, setHydrationProbability] = useState("");
+
+   //HORAS
+   const [meanHour, setMeanHour] = useState("");
+   const [modeHour, setModeHour] = useState("");
+   const [medianHour, setMedianHour] = useState("");
+   const [standardDeviationHour, setStandardDeviationHour] = useState("");
+   const [skewnessHour, setSkewnessHour] = useState("");
+   const [kurtosisHour, setKurtosisHour] = useState("");
+   const [hydrationProbabilityHour, setHydrationProbabilityHour] = useState("");
+
+   //CHAMADA EQUIPAMENTO
+   useEffect(() => {
+      const fetchEquipments = async () => {
+         try {
+            const response = await http.get("/equipments", {});
+            return setSerialNumber(response.data[0].serialNumber);
+         } catch (error) {
+            console.log(error);
+         }
+      };
+
+      fetchEquipments();
+   }, []);
+
+   useEffect(() => {
+      //LOGICA PARA TRATAR DIAS
+      const obterUltimos5DiasFormatados = () => {
+         const hoje = new Date();
+         const ultimos5Dias = [];
+
+         for (let i = 4; i >= 0; i--) {
+            const dia = new Date(hoje);
+            dia.setDate(hoje.getDate() - i);
+
+            const diaFormatado = `${dia
+               .getDate()
+               .toString()
+               .padStart(2, "0")}/${(dia.getMonth() + 1)
+               .toString()
+               .padStart(2, "0")}/${dia.getFullYear()}`;
+            ultimos5Dias.push(diaFormatado);
+         }
+
+         return ultimos5Dias;
+      };
+
+      //CHAMADAS DOS DADOS
+      const arrayDates = obterUltimos5DiasFormatados();
+
+      const horaDados = async () => {
+         try {
+            const response = await http.get("/infos", {
+               params: {
+                  filter: "hours",
+                  equipmentSerialNumber: serialNumber,
+               },
+            });
+            console.log("DADOS", response);
+            setMeanHour(response.data[0].time)
+            return response;
+         } catch (error) {
+            console.log(error);
+         }
+      };
+      horaDados();
+   }, [serialNumber, setSerialNumber]);
+
+   return null;
+};
+
 export const cardsData = [
    {
       title: "Umidade do AR",
@@ -52,13 +137,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Umidade do AR",
-               categories: [
-                  "09-11",
-                  "10-11",
-                  "11-11",
-                  "12-11",
-                  "13-11",
-               ],
+               categories: ["09-11", "10-11", "11-11", "12-11", "13-11"],
             },
          },
       ],
@@ -80,13 +159,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Umidade do AR",
-               categories: [
-                  "17:00",
-                  "18:30",
-                  "19:30",
-                  "20:30",
-                  "21:30",
-               ],
+               categories: [(meanHour, )],
             },
          },
       ],
@@ -117,13 +190,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Umidade do Solo",
-               categories: [
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
-               ],
+               categories: ["09-19", "09-19", "09-19", "09-19", "09-19"],
             },
          },
       ],
@@ -145,13 +212,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Umidade do Solo",
-               categories: [
-                  "00:00",
-                  "01:30",
-                  "02:30",
-                  "03:30",
-                  "04:30",
-               ],
+               categories: ["00:00", "01:30", "02:30", "03:30", "04:30"],
             },
          },
       ],
@@ -182,13 +243,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Temperatura",
-               categories: [
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
-                  "09-19",
-               ],
+               categories: ["09-19", "09-19", "09-19", "09-19", "09-19"],
             },
          },
       ],
@@ -210,13 +265,7 @@ export const cardsData = [
          {
             xaxis: {
                name: "Temperatura",
-               categories: [
-                  "00:00",
-                  "01:30",
-                  "02:30",
-                  "03:30",
-                  "04:30",
-               ],
+               categories: ["00:00", "01:30", "02:30", "03:30", "04:30"],
             },
          },
       ],
