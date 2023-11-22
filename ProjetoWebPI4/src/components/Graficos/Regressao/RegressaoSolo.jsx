@@ -1,10 +1,11 @@
+// solo 
 import Chart from "react-apexcharts";
 import regression from "regression";
 import style from "../styleCharts.module.css";
 import { regressionData } from "../../../Utils/Data";
 import { useEffect, useState } from "react";
 
-const RegressaoArTemperatura = () => {
+const RegressaoSolo = () => {
    const [dataRegressao, setDatadataRegressao] = useState([]);
 
    useEffect(() => {
@@ -17,12 +18,19 @@ const RegressaoArTemperatura = () => {
       return null;
    }
    // Dados de exemplo (substitua pelos seus dados reais)
-   const umidadeAr = dataRegressao.airMoisture;
-   const temperatura = dataRegressao.temperature;
+   const umidadeSolo = dataRegressao.soilMoisture;
 
    // Calcular a linha de regressão
-   const data = umidadeAr.map((value, index) => [value, temperatura[index]]);
-   const result = regression.linear(data, { order: 2 });
+
+   const days = Array.from({ length: 30 }, (_, index) => index + 1);// Adjust this according to your data
+
+   // Pair each umidadeSolo value with its corresponding day
+   const data = umidadeSolo.map((value, index) => [days[index], value]);
+
+   // Perform linear regression
+   const result = regression.linear(data);
+
+   // Get the y-values from the regression result
    const regressionPoints = result.points.map((point) => point[1]);
 
    // Configuração do gráfico
@@ -38,39 +46,40 @@ const RegressaoArTemperatura = () => {
       },
       xaxis: {
          title: {
-            text: "Temperatura",
+            text: "Dias",
          },
       },
       yaxis: {
          title: {
-            text: "Umidade do Ar",
+            text: "Umidade do Solo",
          },
       },
       markers: {
          size: 7,
-         colors: ["#00c076", "#0048ce"],
+         colors: ["#00c076", "#ff0000"],
       },
    };
 
    // Dados do gráfico
    const series = [
       {
-         name: "Temperatura x Ar",
-         data: temperatura,
+         name: "Umidade do Solo",
+         data: umidadeSolo,
          color: "#00c076",
       },
       {
-         name: "R²",
+         name: "Linha de Regressão",
          data: regressionPoints,
-         color: "#0048ce",
+         type: "straight", // Adicione o tipo de gráfico como linha
+         color: "#ff0000", // Escolha a cor desejada
       },
    ];
 
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Regressão</h1>
-            <h2>Umidade do Ar x Temperatura</h2>
+            <h1>Gráfico de Regressão:</h1>
+            <h2>Umidade do Solo</h2>
          </div>
          <Chart
             options={options}
@@ -83,4 +92,4 @@ const RegressaoArTemperatura = () => {
    );
 };
 
-export default RegressaoArTemperatura;
+export default RegressaoSolo;

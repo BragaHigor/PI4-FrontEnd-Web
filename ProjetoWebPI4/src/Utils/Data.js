@@ -1,3 +1,4 @@
+// dara
 /* eslint-disable no-unsafe-optional-chaining */
 import Logo from "../assets/icon.png";
 import http from "../db/http";
@@ -19,17 +20,17 @@ export const SidebarDispersao = [
 
 export const SidebarRegressao = [
    {
-      heading: "Solo x Ar",
-      graphType: "RegressaoArSolo",
+      heading: "Ar",
+      graphType: "RegressaoAr",
    },
    {
-      heading: "Ar x Temperatura",
-      graphType: "RegressaoArTemperatura",
+      heading: "Temperatura",
+      graphType: "RegressaoTemperatura",
    },
    {
-      heading: "Temperatura x Solo",
+      heading: "Solo",
 
-      graphType: "RegressaoTemperaturaSolo",
+      graphType: "RegressaoSolo",
    },
 ];
 
@@ -405,8 +406,6 @@ export const APIData = async () => {
       days,
    };
 
-   console.log("VALUE DIA", data.days.value);
-
    return data;
 };
 
@@ -447,13 +446,11 @@ export const dispersalData = async (value1, value2) => {
    daysStatistic.map((e, i) => {
       if (i < 30) {
          data.push([
-            parseFloat(e?.[value1]?.mean),
-            parseFloat(e?.[value2]?.mean),
+            parseInt(e?.[value1]?.mean, 10),
+            parseInt(e?.[value2]?.mean, 10),
          ]);
       }
    });
-
-   console.log("DISPERSÃO", data);
 
    return data;
 };
