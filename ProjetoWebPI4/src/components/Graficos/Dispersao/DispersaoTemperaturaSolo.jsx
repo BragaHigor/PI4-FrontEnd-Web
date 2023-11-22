@@ -45,7 +45,7 @@ const DispersaoTemperaturaSolo = () => {
       },
       markers: {
          size: 5,
-         colors: ["#ee8f37", "#00256a"], // Adicione mais cores conforme necessário
+         colors: ["#33dda2", "#00256a"], // Adicione mais cores conforme necessário
       },
    };
 

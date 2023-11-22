@@ -55,12 +55,12 @@ const RegressaoTemperaturaSolo = () => {
    // Dados do gráfico
    const series = [
       {
-         name: "Temperatura",
+         name: "Temperatura x Solo",
          data: temperatura,
          color: "#00c076",
       },
       {
-         name: "Umidade do Solo",
+         name: "R²",
          data: regressionPoints,
          color: "#0048ce",
       },

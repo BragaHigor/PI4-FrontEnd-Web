@@ -48,21 +48,21 @@ const RegressaoArTemperatura = () => {
       },
       markers: {
          size: 7,
-         colors: ['#00c076', '#0048ce'],
+         colors: ["#00c076", "#0048ce"],
       },
    };
 
    // Dados do gráfico
    const series = [
       {
-         name: "Temperatura",
+         name: "Temperatura x Ar",
          data: temperatura,
-         color: '#00c076',
+         color: "#00c076",
       },
       {
-         name: "Umidade do Ar",
+         name: "R²",
          data: regressionPoints,
-         color: '#0048ce',
+         color: "#0048ce",
       },
    ];
 
@@ -72,10 +72,10 @@ const RegressaoArTemperatura = () => {
             <h1>Gráfico de Regressão</h1>
             <h2>Umidade do Ar x Temperatura</h2>
          </div>
-         <Chart 
-            options={options} 
-            series={series} 
-            type="line" 
+         <Chart
+            options={options}
+            series={series}
+            type="line"
             height={300}
             width={950}
          />

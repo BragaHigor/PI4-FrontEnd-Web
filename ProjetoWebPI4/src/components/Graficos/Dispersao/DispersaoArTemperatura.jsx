@@ -7,7 +7,7 @@ const DispersaoArTemperatura = () => {
    const [data, setData] = useState([]);
 
    useEffect(() => {
-      dispersalData("airMoisture", "temperature").then((res) => {
+      dispersalData("temperature", "airMoisture").then((res) => {
          setData(res);
       });
    }, []);
@@ -18,7 +18,7 @@ const DispersaoArTemperatura = () => {
    // Dados de exemplo
    const series = [
       {
-         name: "Umidade do Ar x Temperatura",
+         name: "Temperatura  x Umidade do Ar",
          data: data,
       },
    ];
@@ -35,17 +35,17 @@ const DispersaoArTemperatura = () => {
       },
       xaxis: {
          title: {
-            text: "Umidade do Ar",
+            text: "Temperatura",
          },
       },
       yaxis: {
          title: {
-            text: "Temperatura",
+            text: "Umidade do Ar",
          },
       },
       markers: {
          size: 5,
-         colors: ["#33dda2", "#00256a"], // Adicione mais cores conforme necessário
+         colors: ["#2590d8", "#00256a"], // Adicione mais cores conforme necessário
       },
    };
 

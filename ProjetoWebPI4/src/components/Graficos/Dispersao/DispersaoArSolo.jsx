@@ -49,7 +49,7 @@ const DispersaoArSolo = () => {
       },
       markers: {
          size: 5,
-         colors: ["#2590d8", "#00256a"], // Adicione mais cores conforme necessário
+         colors: ["#ee8f37", "#00256a"], // Adicione mais cores conforme necessário
       },
    };
 
