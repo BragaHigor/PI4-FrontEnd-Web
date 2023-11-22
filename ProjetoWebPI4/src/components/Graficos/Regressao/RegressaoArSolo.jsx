@@ -1,11 +1,25 @@
 import Chart from "react-apexcharts";
 import regression from "regression";
 import style from "../styleCharts.module.css";
+import { regressionData } from "../../../Utils/Data";
+import { useEffect, useState } from "react";
 
 const RegressaoArSolo = () => {
+   const [dataRegressao, setDatadataRegressao] = useState([]);
+
+   useEffect(() => {
+      regressionData().then((res) => {
+         setDatadataRegressao(res);
+      });
+   }, []);
+
+   if (dataRegressao.length === 0) {
+      return null;
+   }
+
    // Dados de exemplo (substitua pelos seus dados reais)
-   const umidadeAr = [20, 30, 35, 40, 45, 50, 60, 65];
-   const umidadeSolo = [30, 40, 45, 50, 35, 40, 60, 55];
+   const umidadeAr = dataRegressao.airMoisture;
+   const umidadeSolo = dataRegressao.soilMoisture;
 
    // Calcular a linha de regressão
    const data = umidadeAr.map((value, index) => [value, umidadeSolo[index]]);
@@ -35,7 +49,7 @@ const RegressaoArSolo = () => {
       },
       markers: {
          size: 7,
-         colors: ['#00c076', '#0048ce'],
+         colors: ["#00c076", "#0048ce"],
       },
    };
 
@@ -44,12 +58,12 @@ const RegressaoArSolo = () => {
       {
          name: "Umidade do Solo",
          data: umidadeSolo,
-         color: '#00c076',
+         color: "#00c076",
       },
       {
          name: "Umidade do Ar",
          data: regressionPoints,
-         color: '#0048ce',
+         color: "#0048ce",
       },
    ];
 
@@ -59,10 +73,10 @@ const RegressaoArSolo = () => {
             <h1>Gráfico de Regressão</h1>
             <h2>Umidade do Solo x Umidade do Ar</h2>
          </div>
-         <Chart 
-            options={options} 
-            series={series} 
-            type="line" 
+         <Chart
+            options={options}
+            series={series}
+            type="line"
             height={300}
             width={950}
          />

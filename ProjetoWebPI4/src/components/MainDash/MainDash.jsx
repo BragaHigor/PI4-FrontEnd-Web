@@ -3,9 +3,11 @@ import Cards from "../Cards/Cards";
 import style from "./styleMainDash.module.css";
 import RegressaoDispersao from "../RegressaoDispersao/RegressaoDispersao";
 import http from "../../db/http";
+import { fetchEquipments } from "../../Utils/Data";
 
 const MainDash = () => {
-   const [nomeCliente, setNomeCliente] = useState('');
+   const [nomeCliente, setNomeCliente] = useState("");
+   const [equipamento, setEquipamento] = useState();
 
    useEffect(() => {
       const fetchUsers = async () => {
@@ -28,13 +30,16 @@ const MainDash = () => {
       };
 
       fetchUsers();
+      fetchEquipments().then((res) => {
+         setEquipamento(res)
+      });
    }, []);
 
    return (
       <div className={style.MainDash}>
          <div className={style.Title}>
             <h1>Bem Vindo: {nomeCliente}</h1>
-            <h1>Número do Equipamento: 999999</h1>
+            <h1>Serial Number: {equipamento}</h1>
          </div>
          <Cards />
          <div className={style.Table}>

@@ -77,10 +77,6 @@ const Sidebar = () => {
                   <UilEstate />
                   <span>Dashboard</span>
                </div>
-               <div>
-                  <UilClipboardAlt />
-                  <span>Grafana</span>
-               </div>
                <div onClick={openProfileModal}>
                   <UilUsersAlt />
                   <span>Perfil</span>

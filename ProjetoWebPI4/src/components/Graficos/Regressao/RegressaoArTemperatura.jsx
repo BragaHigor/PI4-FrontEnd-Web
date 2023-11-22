@@ -1,11 +1,24 @@
 import Chart from "react-apexcharts";
 import regression from "regression";
 import style from "../styleCharts.module.css";
+import { regressionData } from "../../../Utils/Data";
+import { useEffect, useState } from "react";
 
 const RegressaoArTemperatura = () => {
+   const [dataRegressao, setDatadataRegressao] = useState([]);
+
+   useEffect(() => {
+      regressionData().then((res) => {
+         setDatadataRegressao(res);
+      });
+   }, []);
+
+   if (dataRegressao.length === 0) {
+      return null;
+   }
    // Dados de exemplo (substitua pelos seus dados reais)
-   const umidadeAr = [20, 30, 35, 40, 45, 50, 60, 65];
-   const temperatura = [30, 40, 45, 50, 35, 40, 60, 55];
+   const umidadeAr = dataRegressao.airMoisture;
+   const temperatura = dataRegressao.temperature;
 
    // Calcular a linha de regressão
    const data = umidadeAr.map((value, index) => [value, temperatura[index]]);

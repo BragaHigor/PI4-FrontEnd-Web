@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "./styleCard.module.css";
 import "react-circular-progressbar/dist/styles.css";
 import { motion, AnimateSharedLayout } from "framer-motion";
@@ -196,7 +196,7 @@ function ExpandedCardDia({ param, setExpanded }) {
                      value2={param.assimetriaDia}
                   />
                   <DadoSolo
-                     title="Probabilidade da Planta Desidratar"
+                     title="Propabilidade de estar hidratada"
                      value={param.probabilidadeDia}
                   />
                </div>
