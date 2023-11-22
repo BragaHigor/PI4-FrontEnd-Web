@@ -11,7 +11,6 @@ const Modal = ({ closeModal, updateUserName }) => {
 
    useEffect(() => {
       const fetchData = async () => {
-         console.log("chegou no botao");
          try {
             const response = await http.put("/users", {
                user: { name: `${nome}`, email: email },

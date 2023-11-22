@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 import { useGraphContext, useAuth } from "../contexts/auth";
 import {
    UilEstate,
-   UilClipboardAlt,
    UilUsersAlt,
 } from "@iconscout/react-unicons";
 import IconSair from "../assets/sair.png";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal/Modal";
+import DispersaoAll from '../components/Graficos/Dispersao/DispersaoAll'
 
 const Sidebar = () => {
    const { setSelectedGraph } = useGraphContext();
@@ -38,11 +38,7 @@ const Sidebar = () => {
    };
 
    const handleLogout = () => {
-      console.log("Logout");
-      // Aqui você executa a função de logout para remover o token
       logout();
-      console.log("passo");
-      // Depois de remover o token, redirecione para a tela de login
       navigate("/");
    };
 
@@ -56,6 +52,10 @@ const Sidebar = () => {
 
    const updateUserName = (newName) => {
       setUserName(newName);
+   };
+
+   const handleGraphChange = (graphType) => {
+      setSelectedGraph(graphType);
    };
 
    return (
@@ -91,7 +91,7 @@ const Sidebar = () => {
                </div>
             </div>
 
-            <div className={style.logo2}>
+            <div className={style.logo2} onClick={() => handleGraphChange("DispersaoAll")}>
                <h1>Dispersão</h1>
             </div>
             <div className={style.menu2}>
@@ -127,6 +127,7 @@ const Sidebar = () => {
                updateUserName={updateUserName}
             />
          )}
+         {setSelectedGraph === 'DispersaoAll' && <DispersaoAll />}
       </>
    );
 };

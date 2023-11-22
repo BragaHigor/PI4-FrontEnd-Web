@@ -44,8 +44,8 @@ const DispersaoArTemperatura = () => {
          },
       },
       markers: {
-         size: 7,
-         colors: ["#006A42", "#00256a"], // Adicione mais cores conforme necessário
+         size: 5,
+         colors: ["#33dda2", "#00256a"], // Adicione mais cores conforme necessário
       },
    };
 

@@ -405,6 +405,8 @@ export const APIData = async () => {
       days,
    };
 
+   console.log("VALUE DIA", data.days.value);
+
    return data;
 };
 
@@ -445,11 +447,13 @@ export const dispersalData = async (value1, value2) => {
    daysStatistic.map((e, i) => {
       if (i < 30) {
          data.push([
-            parseInt(e?.[value1]?.mean, 10),
-            parseInt(e?.[value2]?.mean, 10),
+            parseFloat(e?.[value1]?.mean),
+            parseFloat(e?.[value2]?.mean),
          ]);
       }
    });
+
+   console.log("DISPERSÃO", data);
 
    return data;
 };

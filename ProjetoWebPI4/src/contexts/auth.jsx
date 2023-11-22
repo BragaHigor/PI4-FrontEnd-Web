@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from "react";
 const GraphContext = createContext();
 
 export const GraphProvider = ({ children }) => {
-   const [selectedGraph, setSelectedGraph] = useState("DispersaoArSolo");
+   const [selectedGraph, setSelectedGraph] = useState("DispersaoAll");
 
    const value = {
       selectedGraph,

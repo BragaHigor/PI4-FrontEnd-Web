@@ -17,11 +17,11 @@ const RegressaoTemperaturaSolo = () => {
       return null;
    }
    // Dados de exemplo (substitua pelos seus dados reais)
-   const temperatura = dataRegressao.temperature;
    const umidadeSolo = dataRegressao.soilMoisture;
+   const temperatura = dataRegressao.temperature;
 
    // Calcular a linha de regressão
-   const data = temperatura.map((value, index) => [value, umidadeSolo[index]]);
+   const data = umidadeSolo.map((value, index) => [value, temperatura[index]]);
    const result = regression.linear(data, { order: 2 });
    const regressionPoints = result.points.map((point) => point[1]);
 
@@ -38,12 +38,12 @@ const RegressaoTemperaturaSolo = () => {
       },
       xaxis: {
          title: {
-            text: "Temperatura",
+            text: "Umidade do Solo",
          },
       },
       yaxis: {
          title: {
-            text: "Umidade do Solo",
+            text: "Temperatura",
          },
       },
       markers: {
@@ -55,12 +55,12 @@ const RegressaoTemperaturaSolo = () => {
    // Dados do gráfico
    const series = [
       {
-         name: "Umidade do Solo",
-         data: umidadeSolo,
+         name: "Temperatura",
+         data: temperatura,
          color: "#00c076",
       },
       {
-         name: "Temperatura",
+         name: "Umidade do Solo",
          data: regressionPoints,
          color: "#0048ce",
       },

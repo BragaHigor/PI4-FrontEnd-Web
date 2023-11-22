@@ -7,9 +7,12 @@ const DispersaoArSolo = () => {
    const [data, setData] = useState([]);
 
    useEffect(() => {
-      dispersalData("soilMoisture", "airMoisture").then((res) => {
-         setData(res);
-      });
+      const fetchData = async () => {
+         const result = await dispersalData("soilMoisture", "airMoisture");
+         setData(result);
+      };
+
+      fetchData();
    }, []);
 
    if (data.length === 0) {
@@ -45,8 +48,8 @@ const DispersaoArSolo = () => {
          },
       },
       markers: {
-         size: 7,
-         colors: ["#006A42", "#00256a"], // Adicione mais cores conforme necessário
+         size: 5,
+         colors: ["#2590d8", "#00256a"], // Adicione mais cores conforme necessário
       },
    };
 

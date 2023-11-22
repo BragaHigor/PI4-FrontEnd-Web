@@ -12,8 +12,7 @@ import { APIData } from "../../Utils/Data";
 
 // parent Card
 const Card = (props) => {
-
-   APIData()
+   APIData();
 
    const [expanded, setExpanded] = useState(false);
    const [selectedOption, setSelectedOption] = useState("Dia");
@@ -170,18 +169,18 @@ function ExpandedCardDia({ param, setExpanded }) {
                <div className={style.chartGrafico}>
                   <Chart
                      options={data.options}
-                     series={param.seriesHora}
+                     series={param.seriesDia}
                      type="area"
                      height={400}
                      width={600}
                   />
                </div>
                <div className={style.Dados}>
-                  <Dados 
-                     title="Média" 
-                     value={param.mediaDia} 
-                     title2="Moda" 
-                     value2={param.modaDia} 
+                  <Dados
+                     title="Média"
+                     value={param.mediaDia}
+                     title2="Moda"
+                     value2={param.modaDia}
                   />
                   <Dados
                      title="Mediana"
@@ -197,7 +196,7 @@ function ExpandedCardDia({ param, setExpanded }) {
                   />
                   <DadoSolo
                      title="Propabilidade de estar hidratada"
-                     value={param.probabilidadeDia}
+                     value={`${param.probabilidadeDia}%`}
                   />
                </div>
             </div>
@@ -281,18 +280,18 @@ function ExpandedCardHora({ param, setExpanded }) {
                <div className={style.chartGrafico}>
                   <Chart
                      options={data.options}
-                     series={param.seriesDia}
+                     series={param.seriesHora}
                      type="area"
                      height={400}
                      width={600}
                   />
                </div>
                <div className={style.Dados}>
-                  <Dados 
-                     title="Média" 
-                     value={param.mediaHora} 
-                     title2="Moda" 
-                     value2={param.modaHora} 
+                  <Dados
+                     title="Média"
+                     value={param.mediaHora}
+                     title2="Moda"
+                     value2={param.modaHora}
                   />
                   <Dados
                      title="Mediana"
@@ -308,7 +307,7 @@ function ExpandedCardHora({ param, setExpanded }) {
                   />
                   <DadoSolo
                      title="Probabilidade da Planta Desidratar"
-                     value={param.probabilidadeHora}
+                     value={`${param.probabilidadeHora}%`}
                   />
                </div>
             </div>

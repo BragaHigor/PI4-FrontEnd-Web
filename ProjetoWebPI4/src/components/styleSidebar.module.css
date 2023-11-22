@@ -29,6 +29,12 @@
     justify-content: center;
     height: 4%;
     margin-top: 120px;
+    cursor: pointer;
+  }
+
+  .logo2:hover {
+    color: #006A42;;
+    cursor: pointer;
   }
 
   .logo3 {
