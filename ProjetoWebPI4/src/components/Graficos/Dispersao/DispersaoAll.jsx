@@ -29,24 +29,19 @@ const DispersaoAll = () => {
    // Dados de exemplo
    const series = [
       {
-         name: "Umidade do Ar x Temperatura",
-         data: dataArTemperatura.map((point) => ({
-            x: point[0],
-            y: point[1],
-         })),
+         name: "Umidade do Ar",
+         type: 'scatter',
+         data: dataArTemperatura
       },
       {
-         name: "Umidade do Solo x Temperatura",
-         data: dataTemperaturaSolo.map((point) => ({
-            x: point[0],
-            y: point[1],
-         })),
-      },
+         name: "Umidade do Solo",
+         type: 'scatter',
+         data: dataTemperaturaSolo
+      }
    ];
 
    const options = {
       chart: {
-         type: "scatter",
          zoom: {
             enabled: false,
          },
@@ -56,12 +51,13 @@ const DispersaoAll = () => {
       },
       xaxis: {
          title: {
-            text: "Média dos últimos 30 dias",
+            text: "Temperatura (ºC)",
          },
+         type: 'numeric'
       },
       yaxis: {
          title: {
-            text: "Média dos últimos 30 dias",
+            text: "Porcentagem %",
          },
       },
       markers: {
@@ -72,14 +68,13 @@ const DispersaoAll = () => {
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Dispersão</h1>
+            <h1>Dispersão últimos 30 dias</h1>
          </div>
          <Chart
             options={options}
             series={series}
-            type="scatter"
             height={300}
-            width={950}
+            width={1250}
          />
       </div>
    );

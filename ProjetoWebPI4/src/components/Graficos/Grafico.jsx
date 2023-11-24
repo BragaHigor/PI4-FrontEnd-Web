@@ -7,6 +7,7 @@ const Grafico = ({ data }) => {
       series: [
          {
             name: "Review",
+            type: "area",
             data: data,
          },
       ],

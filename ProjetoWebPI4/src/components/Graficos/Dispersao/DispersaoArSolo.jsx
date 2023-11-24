@@ -9,6 +9,7 @@ const DispersaoArSolo = () => {
    useEffect(() => {
       const fetchData = async () => {
          const result = await dispersalData("soilMoisture", "airMoisture");
+         
          setData(result);
       };
 
@@ -16,13 +17,14 @@ const DispersaoArSolo = () => {
    }, []);
 
    if (data.length === 0) {
+      
       return null;
    }
 
    // Dados de exemplo
    const series = [
       {
-         name: "Umidade do Solo x Umidade do Ar",
+         name: "Umidade do Ar (%)",
          data: data,
       },
    ];
@@ -39,7 +41,7 @@ const DispersaoArSolo = () => {
       },
       xaxis: {
          title: {
-            text: "Umidade do Solo",
+            text: "Umidade do Solo (%)",
          },
       },
       yaxis: {
@@ -56,7 +58,8 @@ const DispersaoArSolo = () => {
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Dispersão</h1>
+            <h1>Dispersão últimos 30 dias</h1>
+            <br />
             <h2>Umidade do Solo x Umidade do Ar</h2>
          </div>
          <Chart
@@ -64,7 +67,7 @@ const DispersaoArSolo = () => {
             series={series}
             type="scatter"
             height={300}
-            width={950}
+            width={1250}
          />
       </div>
    );

@@ -29,7 +29,6 @@ export const SidebarRegressao = [
    },
    {
       heading: "Solo",
-
       graphType: "RegressaoSolo",
    },
 ];
@@ -345,7 +344,7 @@ const fetchStatistics = async (serialNumber, filter, dates) => {
 export const APIData = async () => {
    //variaveis
    const equipment = await fetchEquipments();
-   const daysLast5 = getLast5Days(4);
+   const daysLast5 = getLastDays(4);
 
    //calcula os dados relacionado a dias
    const daysStatistic = await fetchStatistics(equipment, "day", daysLast5);
@@ -412,19 +411,21 @@ export const APIData = async () => {
 export const regressionData = async () => {
    //variaveis
    const equipment = await fetchEquipments();
-   const dates = getLast5Days(30);
+   const dates = getLastDays(30);
+   const initDate = dates[0];
+   const finalDate = dates[dates.length - 1];
 
-   const daysStatistic = await fetchStatistics(equipment, "day", dates);
+   const daysRegressao = await fetchInfos(equipment, "day", finalDate, initDate);
+
+   // const daysStatistic = await fetchStatistics(equipment, "day", dates);
    const temperature = [];
    const soilMoisture = [];
    const airMoisture = [];
 
-   daysStatistic.map((e, i) => {
-      if (i < 30) {
-         temperature.push(parseInt(e.temperature.mean, 10));
-         soilMoisture.push(parseInt(e.soilMoisture.mean, 10));
-         airMoisture.push(parseInt(e.airMoisture.mean, 10));
-      }
+   daysRegressao.map((e) => {
+         temperature.push(parseInt(e.temperature, 10));
+         soilMoisture.push(parseInt(e.soilMoisture, 10));
+         airMoisture.push(parseInt(e.airMoisture, 10));
    });
 
    const data = {
@@ -438,25 +439,25 @@ export const regressionData = async () => {
 
 export const dispersalData = async (value1, value2) => {
    const equipment = await fetchEquipments();
-   const dates = getLast5Days(30);
+   const dates = getLastDays(30);
+   const initDate = dates[0];
+   const finalDate = dates[dates.length - 1];
 
-   const daysStatistic = await fetchStatistics(equipment, "day", dates);
+   const daysDispersao = await fetchInfos(equipment, "day", finalDate, initDate);
    const data = [];
 
-   daysStatistic.map((e, i) => {
-      if (i < 30) {
+   daysDispersao.map((e) => {
          data.push([
-            parseInt(e?.[value1]?.mean, 10),
-            parseInt(e?.[value2]?.mean, 10),
+            parseInt(e[value1], 10),
+            parseInt(e[value2], 10),
          ]);
-      }
    });
-
+   console.log(data);
    return data;
 };
 
 //forma um array com os dias para poder passar para API, o 'qtd'eh o quantidade de dias que voce precisa (sempre ira comecar no dia atual).
-const getLast5Days = (qtd) => {
+const getLastDays = (qtd) => {
    const today = new Date();
    const last5Days = [];
 

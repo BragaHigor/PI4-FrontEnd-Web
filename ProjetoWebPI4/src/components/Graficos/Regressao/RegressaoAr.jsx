@@ -8,12 +8,12 @@ import { useEffect, useState } from "react";
 
 const RegressaoAr = () => {
    const [dataRegressao, setDatadataRegressao] = useState([]);
-
+   
    useEffect(() => {
-      regressionData().then((res) => {
+            regressionData().then((res) => {
          setDatadataRegressao(res);
       });
-   }, []);
+         }, []);
 
    if (dataRegressao.length === 0) {
       return null;
@@ -21,10 +21,10 @@ const RegressaoAr = () => {
 
    // Dados de exemplo (substitua pelos seus dados reais)
    const umidadeAr = dataRegressao.airMoisture;
-
+   
    // Calcular a linha de regressão
 
-   const days = Array.from({ length: 30 }, (_, index) => index + 1);// Adjust this according to your data
+   const days = Array.from({ length: 72 }, (_, index) => index + 1);// Adjust this according to your data
 
    // Pair each umidadeSolo value with its corresponding day
    const data = umidadeAr.map((value, index) => [days[index], value]);
@@ -50,14 +50,14 @@ const RegressaoAr = () => {
          title: {
             text: "Dias",
          },
-      },
+               },
       yaxis: {
          title: {
             text: "Umidade do Ar",
          },
       },
       markers: {
-         size: 7,
+         size: 5,
          colors: ["#00c076", "#ff0000"],
       },
    };
@@ -66,11 +66,13 @@ const RegressaoAr = () => {
    const series = [
       {
          name: "Umidade do Ar",
+         type: "scatter",
          data: umidadeAr,
          color: "#00c076",
       },
       {
          name: "Linha Regressao",
+         type: "line",
          data: regressionPoints,
          color: "#ff0000",
       },
@@ -79,15 +81,14 @@ const RegressaoAr = () => {
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Regressão:</h1>
+            <h1>Gráfico de Regressão: </h1>
             <h2>Umidade do Ar</h2>
          </div>
          <Chart
             options={options}
             series={series}
-            type="line"
             height={300}
-            width={950}
+            width={1250}
          />
       </div>
    );

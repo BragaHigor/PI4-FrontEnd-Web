@@ -22,7 +22,7 @@ const RegressaoSolo = () => {
 
    // Calcular a linha de regressão
 
-   const days = Array.from({ length: 30 }, (_, index) => index + 1);// Adjust this according to your data
+   const days = Array.from({ length: 72 }, (_, index) => index + 1);// Adjust this according to your data
 
    // Pair each umidadeSolo value with its corresponding day
    const data = umidadeSolo.map((value, index) => [days[index], value]);
@@ -55,7 +55,7 @@ const RegressaoSolo = () => {
          },
       },
       markers: {
-         size: 7,
+         size: 5,
          colors: ["#00c076", "#ff0000"],
       },
    };
@@ -65,12 +65,13 @@ const RegressaoSolo = () => {
       {
          name: "Umidade do Solo",
          data: umidadeSolo,
+         type: "scatter",
          color: "#00c076",
       },
       {
          name: "Linha de Regressão",
          data: regressionPoints,
-         type: "straight", // Adicione o tipo de gráfico como linha
+         type: "line", // Adicione o tipo de gráfico como linha
          color: "#ff0000", // Escolha a cor desejada
       },
    ];
@@ -84,9 +85,8 @@ const RegressaoSolo = () => {
          <Chart
             options={options}
             series={series}
-            type="line"
             height={300}
-            width={950}
+            width={1250}
          />
       </div>
    );

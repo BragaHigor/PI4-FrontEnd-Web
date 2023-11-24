@@ -18,7 +18,7 @@ const DispersaoTemperaturaSolo = () => {
    // Dados de exemplo
    const series = [
       {
-         name: "Temperatura x Umidade do Solo",
+         name: "Umidade do Solo",
          data: data,
       },
    ];
@@ -35,12 +35,12 @@ const DispersaoTemperaturaSolo = () => {
       },
       xaxis: {
          title: {
-            text: "Temperatura",
+            text: "Temperatura (ºC)",
          },
       },
       yaxis: {
          title: {
-            text: "Umidade do Solo",
+            text: "Umidade do Solo (%)",
          },
       },
       markers: {
@@ -52,7 +52,8 @@ const DispersaoTemperaturaSolo = () => {
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Dispersão</h1>
+            <h1>Dispersão últimos 30 dias</h1>
+            <br />
             <h2>Temperatura x Umidade do Solo</h2>
          </div>
          <Chart
@@ -60,7 +61,7 @@ const DispersaoTemperaturaSolo = () => {
             series={series}
             type="scatter"
             height={300}
-            width={950}
+            width={1250}
          />
       </div>
    );
