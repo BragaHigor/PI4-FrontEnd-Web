@@ -58,7 +58,7 @@ const RegressaoAr = () => {
       },
       markers: {
          size: 5,
-         colors: ["#00c076", "#ff0000"],
+         colors: ["#00c076", "#0051ff"],
       },
    };
 
@@ -66,7 +66,7 @@ const RegressaoAr = () => {
    const series = [
       {
          name: "Umidade do Ar",
-         type: "scatter",
+         type: "line",
          data: umidadeAr,
          color: "#00c076",
       },
@@ -74,21 +74,21 @@ const RegressaoAr = () => {
          name: "Linha Regressao",
          type: "line",
          data: regressionPoints,
-         color: "#ff0000",
+         color: "#0051ff",
       },
    ];
 
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Regressão: </h1>
-            <h2>Umidade do Ar</h2>
+            <h1>Gráfico de Regressão: Umidade do Ar</h1>
          </div>
          <Chart
             options={options}
             series={series}
+            type="line"
             height={300}
-            width={1250}
+            width={950}
          />
       </div>
    );

@@ -57,7 +57,7 @@ const RegressaoTemperatura = () => {
       },
       markers: {
          size: 5,
-         colors: ['#00c076', '#ff0000'],
+         colors: ['#00c076', '#0051ff'],
       },
    };
 
@@ -66,28 +66,27 @@ const RegressaoTemperatura = () => {
       {
          name: "Temperatura",
          data: temperatura,
-         type: "scatter",
+         type: "line",
          color: '#00c076',
       },
       {
          name: "Linha de Regressão",
          type: "line",
          data: regressionPoints,
-         color: '#ff0000',
+         color: '#0051ff',
       },
    ];
 
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Gráfico de Regressão:</h1>
-            <h2>Temperatura</h2>
+            <h1>Gráfico de Regressão: Temperatura</h1>
          </div>
          <Chart 
             options={options} 
             series={series} 
             height={300}
-            width={1250}
+            width={950}
          />
       </div>
    );

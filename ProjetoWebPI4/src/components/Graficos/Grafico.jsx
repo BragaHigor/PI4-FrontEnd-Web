@@ -7,14 +7,12 @@ const Grafico = ({ data }) => {
       series: [
          {
             name: "Review",
-            type: "area",
             data: data,
          },
       ],
       options: {
          chart: {
             height: "auto",
-            type: "area",
             zoom: {
                enabled: false,
             },

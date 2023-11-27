@@ -9,17 +9,17 @@ const DispersaoAll = () => {
 
    useEffect(() => {
       const fetchDataTemperaturaSolo = async () => {
-         const result = await dispersalData("temperature", "soilMoisture" );
+         const result = await dispersalData("temperature", "soilMoisture");
          setDataTemperaturaSolo(result);
       };
 
       const fetchDataArTemperatura = async () => {
-         const result = await dispersalData("temperature", "airMoisture",);
+         const result = await dispersalData("temperature", "airMoisture");
          setDataArTemperatura(result);
       };
 
-      fetchDataTemperaturaSolo()
-      fetchDataArTemperatura()
+      fetchDataTemperaturaSolo();
+      fetchDataArTemperatura();
    }, []);
 
    if (dataTemperaturaSolo.length === 0 || dataArTemperatura.length === 0) {
@@ -30,14 +30,14 @@ const DispersaoAll = () => {
    const series = [
       {
          name: "Umidade do Ar",
-         type: 'scatter',
-         data: dataArTemperatura
+         type: "scatter",
+         data: dataArTemperatura,
       },
       {
          name: "Umidade do Solo",
-         type: 'scatter',
-         data: dataTemperaturaSolo
-      }
+         type: "scatter",
+         data: dataTemperaturaSolo,
+      },
    ];
 
    const options = {
@@ -53,7 +53,7 @@ const DispersaoAll = () => {
          title: {
             text: "Temperatura (ºC)",
          },
-         type: 'numeric'
+         type: "numeric",
       },
       yaxis: {
          title: {
@@ -61,21 +61,18 @@ const DispersaoAll = () => {
          },
       },
       markers: {
-         size: 5
-      }
+         size: 5,
+      },
    };
 
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Dispersão últimos 30 dias</h1>
+            <h1>
+               Dispersão últimos 30 dias: Temperatura (°C) x Porcentagem (%)
+            </h1>
          </div>
-         <Chart
-            options={options}
-            series={series}
-            height={300}
-            width={1250}
-         />
+         <Chart options={options} series={series} height={300} width={950} />
       </div>
    );
 };

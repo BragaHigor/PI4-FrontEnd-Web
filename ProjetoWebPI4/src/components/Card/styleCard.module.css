@@ -19,6 +19,8 @@
    flex-direction: column;
    /* justify-content: flex-end; */
    gap: 1rem;
+
+   background-color: ;
    
 }
 
@@ -124,13 +126,14 @@
 }
 
 .DiaHora{
-   width: 100%;
+   width: 95%;
    display: flex;
    justify-content: flex-end;
    gap: 20px;
    font-size: 17px;
    color: #292934;
    font-weight: 600;
+   padding-right: 30px;
 }
 
 .Dia:hover{

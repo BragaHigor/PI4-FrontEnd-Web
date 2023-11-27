@@ -46,7 +46,7 @@ const DispersaoArSolo = () => {
       },
       yaxis: {
          title: {
-            text: "Umidade do Ar",
+            text: "Umidade do Ar (%)",
          },
       },
       markers: {
@@ -58,16 +58,14 @@ const DispersaoArSolo = () => {
    return (
       <div className={style.graph}>
          <div className={style.title}>
-            <h1>Dispersão últimos 30 dias</h1>
-            <br />
-            <h2>Umidade do Solo x Umidade do Ar</h2>
+            <h1>Dispersão últimos 30 dias: Umidade do Solo x Umidade do Ar</h1>
          </div>
          <Chart
             options={options}
             series={series}
             type="scatter"
             height={300}
-            width={1250}
+            width={950}
          />
       </div>
    );
